@@ -44,34 +44,13 @@ public class PoorCopy extends CustomCard {
 						this,
 						EXTENDED_DESCRIPTION[1],
 						EXTENDED_DESCRIPTION[3],
-						() -> {
-							AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-						}),
+						() -> AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1))),
 				new ChooseOption(
 						this,
 						EXTENDED_DESCRIPTION[2],
 						EXTENDED_DESCRIPTION[4],
-						() -> {
-							AbstractDungeon.actionManager.addToBottom(new PokerCardChangeAction(p, p, PokerCardChangeAction.Mode.COPY, 1, -1));
-						})
+						() -> AbstractDungeon.actionManager.addToBottom(new PokerCardChangeAction(p, p, PokerCardChangeAction.Mode.COPY, 1, -1)))
 		));
-	}
-
-	@Override
-	public void update() {
-		if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck != null) {
-			int count = 0;
-			for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-				if (c instanceof PokerCard) {
-					count++;
-				}
-			}
-			if (this.baseBlock != count) {
-				this.baseBlock = count;
-				this.initializeDescription();
-			}
-		}
-		super.update();
 	}
 
 	public AbstractCard makeCopy() {
