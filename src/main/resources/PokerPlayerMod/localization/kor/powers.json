@@ -12,15 +12,22 @@
   "PokerPlayerMod:SharpenPower": {
     "NAME": "날카로움",
     "DESCRIPTIONS": [
-      "#y다이아몬드 카드가 쇼다운 에서 #b",
+      "#y다이아몬드 카드가 #y쇼다운 에서 #b",
       " 만큼 피해를 더 줍니다."
     ]
   },
   "PokerPlayerMod:ClubShadePower": {
     "NAME": "클럽의 그림자",
     "DESCRIPTIONS": [
-      "#y클럽 카드가 쇼다운 에서 방어도를 #b",
+      "#y클럽 카드가 #y쇼다운 에서 방어도를 #b",
       " 만큼 줍니다."
+    ]
+  },
+  "PokerPlayerMod:HardenPower": {
+    "NAME": "단단함",
+    "DESCRIPTIONS": [
+      "#스페이드 카드의 #y쇼다운 효과에 \"다음턴에 #y방어도 #b",
+      " 를 얻습니다\" 가 추가됩니다."
     ]
   },
   "PokerPlayerMod:FakeSymbolsPower": {
