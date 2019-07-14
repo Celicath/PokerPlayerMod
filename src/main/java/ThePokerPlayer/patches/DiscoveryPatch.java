@@ -15,6 +15,8 @@ import javassist.CtBehavior;
 import java.util.ArrayList;
 
 public class DiscoveryPatch {
+	private static float CARD_TARGET_Y = (float) Settings.HEIGHT * 0.45F;
+
 	public static PokerCard getRandomPokerCard() {
 		return new PokerCard(
 				PokerCardDiscoveryAction.suit == null ?
@@ -65,15 +67,13 @@ public class DiscoveryPatch {
 
 	@SpirePatch(clz = CardRewardScreen.class, method = "placeCards")
 	public static class DiscoveryPositionPatch {
-		@SpirePrefixPatch
-		public static void Prefix(CardRewardScreen __instance, float x, float y) {
+		@SpirePostfixPatch
+		public static void Postfix(CardRewardScreen __instance, float x, float y) {
 			if (PokerCardDiscoveryAction.isActive) {
 				int len = __instance.rewardGroup.size();
 				if (len >= 5) {
-					final float PAD_X = (80.0F - len * 10.0f) * Settings.scale;
 					for (int i = 0; i < __instance.rewardGroup.size(); i++) {
-						__instance.rewardGroup.get(i).target_x = Settings.WIDTH / 2.0F + (AbstractCard.IMG_WIDTH + PAD_X) * (i - (len / 2.0F - 0.5F));
-						__instance.rewardGroup.get(i).target_y = y;
+						__instance.rewardGroup.get(i).current_x = x;
 					}
 				}
 			}
@@ -96,6 +96,32 @@ public class DiscoveryPatch {
 		public static void Postfix(CardRewardScreen __instance, SpriteBatch sb) {
 			if (PokerCardDiscoveryAction.isActive) {
 				AbstractDungeon.player.hand.render(sb);
+			}
+		}
+	}
+
+	@SpirePatch(clz = CardRewardScreen.class, method = "shouldShowScrollBar")
+	public static class DiscoveryDisableScrollBarPatch {
+		@SpirePostfixPatch
+		public static boolean Postfix(boolean __result, CardRewardScreen __instance) {
+			if (PokerCardDiscoveryAction.isActive) {
+				return false;
+			}
+			return __result;
+		}
+	}
+
+	@SpirePatch(clz = CardRewardScreen.class, method = "renderCardReward")
+	public static class DiscoveryDisableCardScrollPatch {
+		@SpirePostfixPatch
+		public static void Postfix(CardRewardScreen __instance, SpriteBatch sb) {
+			if (PokerCardDiscoveryAction.isActive) {
+				int len = __instance.rewardGroup.size();
+				final float PAD_X = (130.0F - len * 20.0f) * Settings.scale;
+				for (int i = 0; i < len; i++) {
+					__instance.rewardGroup.get(i).target_x = Settings.WIDTH / 2.0F + (AbstractCard.IMG_WIDTH + PAD_X) * (i - (len / 2.0F - 0.5F));
+					__instance.rewardGroup.get(i).target_y = CARD_TARGET_Y;
+				}
 			}
 		}
 	}
