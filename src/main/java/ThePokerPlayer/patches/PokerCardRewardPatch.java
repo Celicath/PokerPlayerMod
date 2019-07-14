@@ -26,57 +26,61 @@ public class PokerCardRewardPatch {
 			new int[]{0, 0, 0, 0, 0, 0, 0, 25, 25, 25, 25};
 	public static final int[] RATIO_SUIT = new int[]{1, 3, 2, 4};
 
+	public static void replaceHalf(ArrayList<AbstractCard> list) {
+		for (int pos = 0; pos < (list.size() + 1) / 2; pos++) {
+			int value = AbstractDungeon.cardRng.random(1999);
+			if (pos * 2 + 1 == list.size() && value < 1000) {
+				break;
+			}
+			int num = value % 1000;
+			int suitNum = num % 10;
+			int rankNum = num / 10;
+			PokerCard.Suit suit = PokerCard.Suit.Diamond;
+			int rank;
+			for (int i = 0; i < 4; i++) {
+				suit = PokerCard.Suit.values()[i];
+				if (suitNum < RATIO_SUIT[i]) {
+					break;
+				}
+				suitNum -= RATIO_SUIT[i];
+			}
+
+			int[] ratio = AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite ?
+					(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_ELITE_NLOTH : RATIO_RANK_ELITE) :
+					AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss ?
+							(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_BOSS_NLOTH : RATIO_RANK_BOSS) :
+							(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_NORMAL_NLOTH : RATIO_RANK_NORMAL);
+			for (rank = 1; rank <= 10; rank++) {
+				if (rankNum < ratio[rank]) {
+					break;
+				}
+				rankNum -= ratio[rank];
+			}
+			boolean dup = false;
+			for (int i = 0; i < pos; i++) {
+				AbstractCard c = list.get(i);
+				if (c instanceof PokerCard) {
+					PokerCard pc = (PokerCard) c;
+					if (pc.suit == suit && pc.rank == rank) {
+						dup = true;
+						break;
+					}
+				}
+			}
+			if (dup) {
+				pos--;
+			} else {
+				list.set(pos, new PokerCard(suit, rank));
+			}
+		}
+	}
+
 	@SpirePatch(clz = AbstractDungeon.class, method = "getRewardCards")
 	public static class RewardPatch {
 		@SpirePostfixPatch
 		public static ArrayList<AbstractCard> Postfix(ArrayList<AbstractCard> __result) {
 			if (AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
-				for (int pos = 0; pos < (__result.size() + 1) / 2; pos++) {
-					int value = AbstractDungeon.cardRng.random(1999);
-					if (pos * 2 + 1 == __result.size() && value < 1000) {
-						break;
-					}
-					int num = value % 1000;
-					int suitNum = num % 10;
-					int rankNum = num / 10;
-					PokerCard.Suit suit = PokerCard.Suit.Diamond;
-					int rank;
-					for (int i = 0; i < 4; i++) {
-						suit = PokerCard.Suit.values()[i];
-						if (suitNum < RATIO_SUIT[i]) {
-							break;
-						}
-						suitNum -= RATIO_SUIT[i];
-					}
-
-					int[] ratio = AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite ?
-							(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_ELITE_NLOTH : RATIO_RANK_ELITE) :
-							AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss ?
-									(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_BOSS_NLOTH : RATIO_RANK_BOSS) :
-									(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_NORMAL_NLOTH : RATIO_RANK_NORMAL);
-					for (rank = 1; rank <= 10; rank++) {
-						if (rankNum < ratio[rank]) {
-							break;
-						}
-						rankNum -= ratio[rank];
-					}
-					boolean dup = false;
-					for (int i = 0; i < pos; i++) {
-						AbstractCard c = __result.get(i);
-						if (c instanceof PokerCard) {
-							PokerCard pc = (PokerCard) c;
-							if (pc.suit == suit && pc.rank == rank) {
-								dup = true;
-								break;
-							}
-						}
-					}
-					if (dup) {
-						pos--;
-					} else {
-						__result.set(pos, new PokerCard(suit, rank));
-					}
-				}
+				replaceHalf(__result);
 			}
 			return __result;
 		}
