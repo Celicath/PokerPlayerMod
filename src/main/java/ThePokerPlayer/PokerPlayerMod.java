@@ -35,6 +35,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -401,7 +402,9 @@ public class PokerPlayerMod
 
 		for (CustomCard card : cards) {
 			BaseMod.addCard(card);
-			//UnlockTracker.unlockCard(card.cardID);
+			if (card instanceof PokerCard && !UnlockTracker.isCardSeen(card.cardID)) {
+				UnlockTracker.unlockCard(card.cardID);
+			}
 		}
 	}
 
