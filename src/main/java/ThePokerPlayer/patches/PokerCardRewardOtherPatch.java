@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CtBehavior;
 
 import java.util.ArrayList;
@@ -57,7 +56,7 @@ public class PokerCardRewardOtherPatch {
 		@SpireInsertPatch(locator = DraftLocator.class, localvars = {"derp"})
 		public static void Insert(CardRewardScreen __instance, ArrayList<AbstractCard> derp) {
 			if (AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
-				PokerCardRewardPatch.replaceHalf(derp);
+				PokerCardRewardPatch.replaceHalf(derp, false);
 			}
 		}
 	}
@@ -76,7 +75,7 @@ public class PokerCardRewardOtherPatch {
 		@SpireInsertPatch(locator = SealedDeckLocator.class, localvars = {"sealedGroup"})
 		public static void Insert(NeowEvent __instance, CardGroup sealedGroup) {
 			if (AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
-				PokerCardRewardPatch.replaceHalf(sealedGroup.group);
+				PokerCardRewardPatch.replaceHalf(sealedGroup.group, true);
 			}
 		}
 	}
@@ -108,6 +107,16 @@ public class PokerCardRewardOtherPatch {
 				}
 			}
 			return __result;
+		}
+	}
+
+	@SpirePatch(cls = "chronometry.patches.StartGamePatch", method = "chooseCards", optional = true)
+	public static class SlayTheStreamerPatch {
+		@SpireInsertPatch(locator = SealedDeckLocator.class, localvars = {"sealedGroup"})
+		public static void Insert(NeowEvent self, CardGroup sealedGroup) {
+			if (AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
+				PokerCardRewardPatch.replaceHalf(sealedGroup.group, true);
+			}
 		}
 	}
 }

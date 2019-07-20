@@ -8,7 +8,8 @@
     <packaging>jar</packaging>
 
     <name>PokerPlayerMod</name>
-    <description>Adds a character called The Poker Player, who fights with his own rule inspired from Card poker.</description>
+    <description>Adds a character called The Poker Player, who fights with his own rule inspired from Card poker.
+    </description>
 
     <dependencies>
         <dependency>
@@ -38,6 +39,13 @@
             <version>1.0.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/../lib/StSLib.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>chronometry</groupId>
+            <artifactId>SlayTheStreamer</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/Slay the Streamer.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>cz.advel.jbullet</groupId>
@@ -76,7 +84,8 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/PokerPlayerMod.jar" tofile="D:\Steam\steamapps\common\SlayTheSpire\mods\PokerPlayerMod.jar"/>
+                                <copy file="target/PokerPlayerMod.jar"
+                                      tofile="D:\Steam\steamapps\common\SlayTheSpire\mods\PokerPlayerMod.jar"/>
                             </target>
                         </configuration>
                         <goals>

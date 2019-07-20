@@ -26,7 +26,7 @@ public class PokerCardRewardPatch {
 			new int[]{0, 0, 0, 0, 0, 0, 0, 25, 25, 25, 25};
 	public static final int[] RATIO_SUIT = new int[]{1, 3, 2, 4};
 
-	public static void replaceHalf(ArrayList<AbstractCard> list) {
+	public static void replaceHalf(ArrayList<AbstractCard> list, boolean canDuplicate) {
 		for (int pos = 0; pos < (list.size() + 1) / 2; pos++) {
 			int value = AbstractDungeon.cardRng.random(1999);
 			if (pos * 2 + 1 == list.size() && value < 1000) {
@@ -57,13 +57,15 @@ public class PokerCardRewardPatch {
 				rankNum -= ratio[rank];
 			}
 			boolean dup = false;
-			for (int i = 0; i < pos; i++) {
-				AbstractCard c = list.get(i);
-				if (c instanceof PokerCard) {
-					PokerCard pc = (PokerCard) c;
-					if (pc.suit == suit && pc.rank == rank) {
-						dup = true;
-						break;
+			if (!canDuplicate) {
+				for (int i = 0; i < pos; i++) {
+					AbstractCard c = list.get(i);
+					if (c instanceof PokerCard) {
+						PokerCard pc = (PokerCard) c;
+						if (pc.suit == suit && pc.rank == rank) {
+							dup = true;
+							break;
+						}
 					}
 				}
 			}
@@ -80,7 +82,7 @@ public class PokerCardRewardPatch {
 		@SpirePostfixPatch
 		public static ArrayList<AbstractCard> Postfix(ArrayList<AbstractCard> __result) {
 			if (AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
-				replaceHalf(__result);
+				replaceHalf(__result, false);
 			}
 			return __result;
 		}
