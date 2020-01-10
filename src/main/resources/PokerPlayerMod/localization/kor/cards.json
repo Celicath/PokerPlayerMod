@@ -117,7 +117,7 @@
   "PokerPlayerMod:Manipulation": {
     "NAME": "조작",
     "DESCRIPTION": "다음 X턴 동안, [E] [E] 를 추가로 얻습니다. NL 포커 카드 1장의 pokerplayer:등급 을 전투가 끝날 때 까지 X 올릴 수 있습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": "다음 X턴 동안, [E] [E] 를 추가로 얻습니다. NL 포커 카드 1장의 pokerplayer:등급 을 전투가 끝날 때 까지 X 올릴 수 있습니다."
+    "UPGRADE_DESCRIPTION": "다음 X+1턴 동안, [E] [E] 를 추가로 얻습니다. NL 포커 카드 1장의 pokerplayer:등급 을 전투가 끝날 때 까지 X+1 올릴 수 있습니다."
   },
   "PokerPlayerMod:SecondChance": {
     "NAME": "두번째 기회",
@@ -146,12 +146,12 @@
   },
   "PokerPlayerMod:JackOfSpades": {
     "NAME": "스페이드 잭",
-    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 약화 를 !M! 부여합니다. NL 취약 을 !M! 부여합니다. NL 소멸."
+    "DESCRIPTION": "방어도 를 !B! 얻습니다. NL 약화 를 !M! 부여합니다. NL 취약 을 !M! 부여합니다. NL 소멸"
   },
   "PokerPlayerMod:Overdeal": {
     "NAME": "초과 배분",
-    "DESCRIPTION": "피해를 X 줍니다. NL 무작위 포커 카드를 X 장 얻습니다. NL 소멸.",
-    "UPGRADE_DESCRIPTION": "피해를 X+1 줍니다. NL 무작위 포커 카드를 X+1 장 얻습니다. NL 소멸."
+    "DESCRIPTION": "피해를 X 줍니다. NL 무작위 포커 카드를 X 장 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": "피해를 X+1 줍니다. NL 무작위 포커 카드를 X+1 장 얻습니다. NL 소멸"
   },
   "PokerPlayerMod:RiskyBet": {
     "NAME": "위험한 도박",
@@ -205,11 +205,11 @@
   },
   "PokerPlayerMod:ItsShowtime": {
     "NAME": "쇼타임!",
-    "DESCRIPTION": "카드를 1장 뽑습니다. NL 즉시 pokerplayer:쇼다운 효과를 받습니다. NL 소멸."
+    "DESCRIPTION": "카드를 1장 뽑습니다. NL 즉시 pokerplayer:쇼다운 효과를 받습니다. NL 소멸"
   },
   "PokerPlayerMod:Promotion": {
     "NAME": "승급",
-    "DESCRIPTION": "전투가 끝날 때까지 가진 모든 포커 카드의 pokerplayer:등급 을 !M! 올립니다. NL 소멸."
+    "DESCRIPTION": "전투가 끝날 때까지 가진 모든 포커 카드의 pokerplayer:등급 을 !M! 올립니다. NL 소멸"
   },
   "PokerPlayerMod:SecretDealer": {
     "NAME": "나만의 딜러",
@@ -222,7 +222,7 @@
   },
   "PokerPlayerMod:WildCard": {
     "NAME": "와일드 카드",
-    "DESCRIPTION": "원하는 포커 카드를 하나 선택해 얻습니다. NL 소멸."
+    "DESCRIPTION": "원하는 포커 카드를 하나 선택해 얻습니다. NL 소멸"
   },
   "PokerPlayerMod:FakeSymbols": {
     "NAME": "위조 무늬",
@@ -236,8 +236,8 @@
   },
   "PokerPlayerMod:StackedDeck": {
     "NAME": "조작된 덱",
-    "DESCRIPTION": "매 턴 시작 시 뽑을 카드 더미 위의 카드 !M! 장을 보고 원하는 만큼 카드를 버립니다.",
-    "UPGRADE_DESCRIPTION": "카드를 1장 뽑습니다. NL 매 턴 시작 시 뽑을 카드 더미 위의 카드 !M! 장을 보고 원하는 만큼 카드를 버립니다."
+    "DESCRIPTION": "매 턴 시작 시 카드를 뽑은 후 예측 !M!",
+    "UPGRADE_DESCRIPTION": "카드를 1장 뽑습니다. NL 매 턴 시작 시 카드를 뽑은 후 예측 !M!"
   },
   "PokerPlayerMod:SuperBite": {
     "NAME": "대량 흡혈",

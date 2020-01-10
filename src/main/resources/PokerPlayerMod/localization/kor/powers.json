@@ -16,6 +16,13 @@
       " 만큼 피해를 더 줍니다."
     ]
   },
+  "PokerPlayerMod:ClubPower": {
+    "NAME": "클럽 파워",
+    "DESCRIPTIONS": [
+      "#y클럽 카드가 #y쇼다운 에서 #b",
+      " 만큼 피해를 더 줍니다."
+    ]
+  },
   "PokerPlayerMod:ClubShadePower": {
     "NAME": "클럽의 그림자",
     "DESCRIPTIONS": [

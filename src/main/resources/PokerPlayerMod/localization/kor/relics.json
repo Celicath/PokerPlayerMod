@@ -30,7 +30,8 @@
     "NAME": "클럽 입장권",
     "FLAVOR": "당연하게도 말장난의 클럽입니다.",
     "DESCRIPTIONS": [
-      "이름에 \"클럽\" 이 붙은 카드를 사용할 때마다 #ypokerplayer:클럽 카드가 전투가 끝날 때 까지 #b1 의 피해를 더 입힙니다."
+      "이름에 \"클럽\" 이 붙은 카드를 #b",
+      " [REMOVE_SPACE]장 사용할 때마다 #y클럽 #y파워 [REMOVE_SPACE]를 #b1 얻습니다. #y클럽 #y파워 만큼 #ypokerplayer:클럽 카드의 피해량이 증가합니다."
     ]
   },
   "PokerPlayerMod:PenAndEraser": {

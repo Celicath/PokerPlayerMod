@@ -242,7 +242,7 @@
   "PokerPlayerMod:SuperBite": {
     "NAME": "超级噬咬",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 回复 !M! 生命。"
-   },
+  },
   "PokerPlayerMod:Harden": {
     "NAME": "硬化",
     "DESCRIPTION": "pokerplayer:摊牌 时，你的 pokerplayer:黑桃 会额外给予你 2 点下一回合 格挡 。",
