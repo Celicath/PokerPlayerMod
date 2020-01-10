@@ -1,7 +1,7 @@
 package ThePokerPlayer.actions;
 
 import ThePokerPlayer.PokerPlayerMod;
-import ThePokerPlayer.cards.ChoiceCard.BrokenClockChoice;
+import ThePokerPlayer.cards.FakeCards.BrokenClockChoice;
 import ThePokerPlayer.cards.PokerCard;
 import ThePokerPlayer.relics.BrokenClock;
 import basemod.BaseMod;

@@ -1,7 +1,7 @@
 package ThePokerPlayer.patches;
 
 import ThePokerPlayer.actions.PokerCardDiscoveryAction;
-import ThePokerPlayer.cards.ChoiceCard.BrokenClockChoice;
+import ThePokerPlayer.cards.FakeCards.BrokenClockChoice;
 import ThePokerPlayer.cards.PokerCard;
 import ThePokerPlayer.relics.BrokenClock;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -117,10 +117,12 @@ public class DiscoveryPatch {
 		public static void Postfix(CardRewardScreen __instance, SpriteBatch sb) {
 			if (PokerCardDiscoveryAction.isActive) {
 				int len = __instance.rewardGroup.size();
-				final float PAD_X = (130.0F - len * 20.0f) * Settings.scale;
-				for (int i = 0; i < len; i++) {
-					__instance.rewardGroup.get(i).target_x = Settings.WIDTH / 2.0F + (AbstractCard.IMG_WIDTH + PAD_X) * (i - (len / 2.0F - 0.5F));
-					__instance.rewardGroup.get(i).target_y = CARD_TARGET_Y;
+				if (len >= 5) {
+					final float PAD_X = (330.0F - len * 60.0f) * Settings.scale;
+					for (int i = 0; i < len; i++) {
+						__instance.rewardGroup.get(i).target_x = Settings.WIDTH / 2.0F + (AbstractCard.IMG_WIDTH + PAD_X) * (i - (len / 2.0F - 0.5F));
+						__instance.rewardGroup.get(i).target_y = CARD_TARGET_Y;
+					}
 				}
 			}
 		}

@@ -2,6 +2,7 @@ package ThePokerPlayer.patches;
 
 import ThePokerPlayer.actions.ActivateExhaustEffectsAction;
 import ThePokerPlayer.relics.DeckCase;
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -61,7 +62,8 @@ public class DeckCasePatch {
 		@SpirePostfixPatch
 		public static void Postfix(ShowCardAndAddToDiscardEffect __instance, AbstractCard srcCard, float x, float y) {
 			if (Util.needToExhaust(srcCard)) {
-				AbstractDungeon.player.discardPile.removeCard(srcCard);
+				AbstractCard card = (AbstractCard) (ReflectionHacks.getPrivate(__instance, ShowCardAndAddToDiscardEffect.class, "card"));
+				AbstractDungeon.player.discardPile.removeCard(card);
 				__instance.duration *= 0.5f;
 				Util.setExhaustStatus(__instance);
 			}
@@ -122,7 +124,8 @@ public class DeckCasePatch {
 		@SpirePostfixPatch
 		public static void Postfix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, float x, float y, boolean randomSpot, boolean cardOffset, boolean toBottom) {
 			if (Util.needToExhaust(srcCard)) {
-				AbstractDungeon.player.drawPile.removeCard(srcCard);
+				AbstractCard card = (AbstractCard) (ReflectionHacks.getPrivate(__instance, ShowCardAndAddToDrawPileEffect.class, "card"));
+				AbstractDungeon.player.drawPile.removeCard(card);
 				__instance.duration *= 0.5f;
 				Util.setExhaustStatus(__instance);
 			}
@@ -142,7 +145,8 @@ public class DeckCasePatch {
 		@SpirePostfixPatch
 		public static void Postfix(ShowCardAndAddToDrawPileEffect __instance, AbstractCard srcCard, boolean randomSpot, boolean toBottom) {
 			if (Util.needToExhaust(srcCard)) {
-				AbstractDungeon.player.drawPile.removeCard(srcCard);
+				AbstractCard card = (AbstractCard) (ReflectionHacks.getPrivate(__instance, ShowCardAndAddToDrawPileEffect.class, "card"));
+				AbstractDungeon.player.drawPile.removeCard(card);
 				__instance.duration *= 0.5f;
 				Util.setExhaustStatus(__instance);
 			}

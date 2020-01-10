@@ -12,16 +12,19 @@ public class ManipulationAction extends AbstractGameAction {
 	private boolean freeToPlayOnce;
 	private AbstractPlayer p;
 	private int energyOnUse;
+	private boolean upgraded;
 
-	public ManipulationAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse) {
+	public ManipulationAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
 		this.p = p;
 		this.freeToPlayOnce = freeToPlayOnce;
 		this.duration = Settings.ACTION_DUR_XFAST;
 		this.actionType = ActionType.SPECIAL;
 		this.energyOnUse = energyOnUse;
+		this.upgraded = upgraded;
 	}
 
 	public void update() {
+
 		int effect = EnergyPanel.totalCount;
 		if (this.energyOnUse != -1) {
 			effect = this.energyOnUse;
@@ -30,6 +33,10 @@ public class ManipulationAction extends AbstractGameAction {
 		if (this.p.hasRelic("Chemical X")) {
 			effect += 2;
 			this.p.getRelic("Chemical X").flash();
+		}
+
+		if (this.upgraded) {
+			++effect;
 		}
 
 		if (effect > 0) {

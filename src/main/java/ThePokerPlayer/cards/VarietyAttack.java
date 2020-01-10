@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.WristBlade;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.combat.GrandFinalEffect;
 
 import java.util.ArrayList;
@@ -81,18 +81,12 @@ public class VarietyAttack extends CustomCard {
 		}
 
 		for (int i = 0; i < tmp.length; ++i) {
-			if (AbstractDungeon.player.hasRelic(WristBlade.ID) && (this.costForTurn == 0 || this.freeToPlayOnce)) {
-				tmp[i] += 3.0F;
-				if (this.baseDamage != (int) tmp[i]) {
-					this.isDamageModified = true;
-				}
+			for (AbstractRelic r : AbstractDungeon.player.relics) {
+				tmp[i] = r.atDamageModify(tmp[i], this);
 			}
 
 			for (AbstractPower p : AbstractDungeon.player.powers) {
 				tmp[i] = p.atDamageGive(tmp[i], this.damageTypeForTurn);
-				if (this.baseDamage != (int) tmp[i]) {
-					this.isDamageModified = true;
-				}
 			}
 
 			if (mult > 1) {
@@ -107,9 +101,6 @@ public class VarietyAttack extends CustomCard {
 
 			for (AbstractPower p : AbstractDungeon.player.powers) {
 				tmp[i] = p.atDamageFinalGive(tmp[i], this.damageTypeForTurn);
-				if (this.baseDamage != (int) tmp[i]) {
-					this.isDamageModified = true;
-				}
 			}
 
 			for (AbstractPower p : m.get(i).powers) {
@@ -127,6 +118,10 @@ public class VarietyAttack extends CustomCard {
 
 		for (int i = 0; i < tmp.length; ++i) {
 			this.multiDamage[i] = MathUtils.floor(tmp[i]);
+		}
+
+		if (baseDamage != damage) {
+			isDamageModified = true;
 		}
 	}
 

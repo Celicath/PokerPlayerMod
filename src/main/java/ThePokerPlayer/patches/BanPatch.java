@@ -6,6 +6,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PotionHelper;
+import com.megacrit.cardcrawl.potions.DistilledChaosPotion;
+import com.megacrit.cardcrawl.potions.SneckoOil;
 import com.megacrit.cardcrawl.potions.SwiftPotion;
 
 public class BanPatch {
@@ -25,6 +27,8 @@ public class BanPatch {
 		public static void Postfix(AbstractPlayer.PlayerClass chosenClass) {
 			if (chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER && PokerPlayerMod.banContents) {
 				PotionHelper.potions.remove(SwiftPotion.POTION_ID);
+				PotionHelper.potions.remove(SneckoOil.POTION_ID);
+				PotionHelper.potions.remove(DistilledChaosPotion.POTION_ID);
 			}
 		}
 	}

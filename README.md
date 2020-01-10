@@ -32,7 +32,7 @@ In addition, if you score a [Poker Hand](https://en.wikipedia.org/wiki/List_of_p
   - 1 Pair Flush: +175%
   - Straight Flush: +350%
 
-If you upgrade a Poker Card, its rank will go up by 1. This means the one with rank 10 cannot be upgraded.
+If you upgrade a Poker Card, its rank will go up by 1. Rank 10 cards cannot be upgraded since they have the highest rank.
 
 # Compatibility
 Unlike most Slay the Spire mods, The Poker Player is not intended to be used with any other mods. Sine the majority of cards are not played in a traditional way, many relics/cards/etc added by mods will be played much differently with this character. Similarly, playing with Custom Mods are not intended.
@@ -42,10 +42,11 @@ To play with this mod only, only check BaseMod, StSLib and The Poker Player and 
 However, nothing stops you from trying this mod with others. Just keep in mind that I'm not going to change any cross-mod interactions other than crash or softlock issues.
 
 # See Also
-The Poker Player is not a traditional mod. If you want to play as a character that feels normal, see [Gatherer](https://github.com/Celicath/GathererMod), or look for [List of Known Mods](https://github.com/kiooeht/ModTheSpire/wiki/List-of-Known-Mods) page on Mod The Spire wiki.
+The Poker Player is not a traditional mod. If you want to play as a character that feels normal, see [Gatherer](https://github.com/Celicath/GathererMod).
 
 ## Special Thanks To
 - HSymbol for the original game.
+- Rita-Bernstein for ZHS translation.
 
 ## License
 - All code is in MIT license.

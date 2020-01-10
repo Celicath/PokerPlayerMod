@@ -18,7 +18,7 @@ public class CardPrinter extends CustomCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String IMG = PokerPlayerMod.GetCardPath(RAW_ID);
-	private static final int COST = 2;
+	private static final int COST = 1;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	private static final AbstractCard.CardType TYPE = CardType.POWER;
@@ -61,11 +61,22 @@ public class CardPrinter extends CustomCard {
 		return timesUpgraded < 7;
 	}
 
+	@Override
 	public void upgrade() {
 		if (timesUpgraded < 7) {
 			timesUpgraded++;
 			this.upgradeMagicNumber(1);
 			updateDescription();
 		}
+	}
+
+	@Override
+	public String getMetricID() {
+		String id = cardID;
+		if (this.timesUpgraded > 0) {
+			id = id + "+" + timesUpgraded;
+		}
+
+		return id;
 	}
 }

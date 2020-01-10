@@ -17,11 +17,13 @@ import static ThePokerPlayer.cards.PokerCard.SUIT_WIDTH;
 
 public class PokerScoreViewer {
 	private Hitbox hb;
+	private Hitbox[] childHb;
 	private static UIStrings uiStrings = null;
 	public static String[] TEXT = null;
 
 	private static final int width = 240;
 	private static final int height = 100;
+	private static final int distance = 50;
 
 	// dragging
 	private int moveState = 0;
@@ -33,6 +35,12 @@ public class PokerScoreViewer {
 	public PokerScoreViewer() {
 		hb = new Hitbox(width * Settings.scale, height * Settings.scale);
 		hb.move(Settings.WIDTH / 2.0f, Settings.HEIGHT * 0.79f);
+		childHb = new Hitbox[4];
+		for (int i = 0; i < 4; i++) {
+			float dx = Settings.scale * distance;
+			childHb[i] = new Hitbox(dx, height * Settings.scale);
+			childHb[i].move(hb.cX + dx * (i - 1.5f), hb.cY);
+		}
 		uiStrings = CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("PokerScoreViewer"));
 		TEXT = uiStrings.TEXT;
 	}
@@ -41,6 +49,9 @@ public class PokerScoreViewer {
 		ShowdownAction.calculateShowdown();
 
 		hb.update();
+		for (int i = 0; i < 4; i++) {
+			childHb[i].update();
+		}
 	}
 
 	public void dragUpdate() {
@@ -67,6 +78,9 @@ public class PokerScoreViewer {
 
 				if (moveState == 2) {
 					hb.move(x, y);
+					for (int i = 0; i < 4; i++) {
+						childHb[i].move(hb.cX + (i - 1.5f) * distance * Settings.scale, hb.cY);
+					}
 				}
 			}
 		}
@@ -78,7 +92,7 @@ public class PokerScoreViewer {
 	public void render(SpriteBatch sb) {
 
 		for (int i = 0; i < PokerCard.Suit.values().length; i++) {
-			float dx = Settings.scale * (50.0f * (i - 1.5f));
+			float dx = Settings.scale * (distance * (i - 1.5f));
 			sb.draw(
 					PokerCard.Suit.values()[i].getImage(),
 					hb.cX + dx - DIST,
@@ -100,7 +114,7 @@ public class PokerScoreViewer {
 		}
 
 		if (ShowdownAction.hardenCount > 0) {
-			float dx = Settings.scale * (50.0f * (1 - 1.5f));
+			float dx = Settings.scale * (distance * (1 - 1.5f));
 			FontHelper.renderFontCentered(
 					sb,
 					FontHelper.powerAmountFont,
@@ -111,13 +125,23 @@ public class PokerScoreViewer {
 		}
 
 		if (this.hb.hovered) {
-			TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, TEXT[0], getTipBody());
+			int index = -1;
+			for (int i = 0; i < 4; i++) {
+				if (childHb[i].hovered) {
+					index = i;
+					break;
+				}
+			}
+			TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, TEXT[0], getTipBody(index));
 		}
 
 		hb.render(sb);
+		for (int i = 0; i < 4; i++) {
+			childHb[i].render(sb);
+		}
 	}
 
-	public String getTipBody() {
+	public String getTipBody(int index) {
 		String result = TEXT[1] + " NL " + TEXT[2];
 
 		for (int i = 1; i <= ShowdownAction.FIVE_CARD; i++) {
@@ -132,6 +156,13 @@ public class PokerScoreViewer {
 			result += " NL" + highlightedText(ShowdownAction.TEXT[ShowdownAction.FLUSH]) + " : #b+" + ShowdownAction.rawModifierBonus(ShowdownAction.FLUSH) + "%";
 		} else {
 			result += " NL" + ShowdownAction.TEXT[ShowdownAction.FLUSH] + " : #b+" + ShowdownAction.rawModifierBonus(ShowdownAction.FLUSH) + "%";
+		}
+
+		if (index != -1 && TEXT.length > 3) {
+			result += " NL NL " + TEXT[index * 2 + 3] + ShowdownAction.powView[index] + TEXT[index * 2 + 4];
+			if (index == 1 && ShowdownAction.hardenCount > 0) {
+				result += " NL " + TEXT[11] + ShowdownAction.hardenCount + TEXT[12];
+			}
 		}
 		return result;
 	}

@@ -1,16 +1,12 @@
 package ThePokerPlayer.actions;
 
-import ThePokerPlayer.cards.ChoiceCard.BrokenClockChoice;
+import ThePokerPlayer.cards.FakeCards.BrokenClockChoice;
 import ThePokerPlayer.cards.PokerCard;
-import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.screens.CardRewardScreen;
-import com.megacrit.cardcrawl.ui.buttons.SingingBowlButton;
-import com.megacrit.cardcrawl.ui.buttons.SkipCardButton;
 
 public class PokerCardDiscoveryAction extends AbstractGameAction {
 	private boolean retrieveCard = false;
@@ -67,7 +63,7 @@ public class PokerCardDiscoveryAction extends AbstractGameAction {
 
 					this.retrieveCard = true;
 					this.isDone = true;
-				} else {
+				}/* else {
 					AbstractDungeon.topPanel.unhoverHitboxes();
 					AbstractDungeon.isScreenUp = true;
 					AbstractDungeon.screen = AbstractDungeon.CurrentScreen.CARD_REWARD;
@@ -77,7 +73,7 @@ public class PokerCardDiscoveryAction extends AbstractGameAction {
 					SingingBowlButton bowlButton = (SingingBowlButton) ReflectionHacks.getPrivate(AbstractDungeon.cardRewardScreen, CardRewardScreen.class, "bowlButton");
 					skipButton.hide();
 					bowlButton.hide();
-				}
+				}*/
 			}
 		}
 	}

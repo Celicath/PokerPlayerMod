@@ -3,7 +3,7 @@ package ThePokerPlayer.cards;
 import ThePokerPlayer.PokerPlayerMod;
 import ThePokerPlayer.actions.ChooseAction;
 import ThePokerPlayer.actions.PokerCardChangeAction;
-import ThePokerPlayer.cards.ChoiceCard.ChooseOption;
+import ThePokerPlayer.cards.FakeCards.ChooseOption;
 import ThePokerPlayer.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;

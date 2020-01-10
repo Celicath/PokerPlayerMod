@@ -31,7 +31,7 @@ public class Manipulation extends CustomCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ManipulationAction(p, this.freeToPlayOnce, this.energyOnUse));
+		AbstractDungeon.actionManager.addToBottom(new ManipulationAction(p, freeToPlayOnce, energyOnUse, upgraded));
 	}
 
 	public AbstractCard makeCopy() {
@@ -41,7 +41,6 @@ public class Manipulation extends CustomCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			this.exhaust = false;
 			this.rawDescription = UPGRADE_DESCRIPTION;
 			this.initializeDescription();
 		}

@@ -19,13 +19,13 @@ When you play a Poker card, it just draws 1 card.
 
 At the end of your turn, you enter a phase called "Showdown", where you get the effects from Poker cards in your hand.
 Depending on what [url=https://en.wikipedia.org/wiki/List_of_poker_hands]Poker Hand[/url] you score, the effects become stronger!
-(If you have more than 5 Poker cards in hand, you have to discard down to 5 cards.)
+(If you have more than 5 Poker cards in hand, you first have to discard down to 5 cards.)
 
 [h1] Balance and Banned contents [/h1]
 Because of how Poker cards are played, several relics/cards are not available if you play as the Poker Player for being too overpowered or confusing. 
 - Relics: Snecko Eye, Centennial Puzzle, Runic Pyramid, Bag of Preparation, Pocketwatch, Gremlin Horn, Pandora's Box, Unceasing Top, Dead Branch
-- Card: Deep Breath, Impatience, Master of Strategy, Mayhem, Magnetism, Violence
-- Potion: Swift Potion
+- Card: Deep Breath, Impatience, Master of Strategy, Mayhem, Magnetism
+- Potion: Swift Potion, Snecko Oil, Distilled Chaos
 - 2 Events, Vampires(?) and Ancient Writings have different choices for the Poker Player.
 
 Banning contents can be turned off in the mod config. (Main menu->Mods->The Poker Player->Config)

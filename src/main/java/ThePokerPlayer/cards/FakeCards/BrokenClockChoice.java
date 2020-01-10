@@ -1,4 +1,4 @@
-package ThePokerPlayer.cards.ChoiceCard;
+package ThePokerPlayer.cards.FakeCards;
 
 import ThePokerPlayer.PokerPlayerMod;
 import ThePokerPlayer.patches.CardColorEnum;

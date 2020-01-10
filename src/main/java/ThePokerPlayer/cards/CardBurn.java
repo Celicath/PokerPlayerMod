@@ -38,7 +38,7 @@ public class CardBurn extends CustomCard {
 		if (upgraded) {
 			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
 		}
-		AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false));
+		AbstractDungeon.actionManager.addToBottom(new ExhaustAction(1, false));
 		if (!upgraded) {
 			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
 		}

@@ -4,7 +4,6 @@ import ThePokerPlayer.PokerPlayerMod;
 import ThePokerPlayer.cards.JackOfSpades;
 import ThePokerPlayer.cards.PokerCard;
 import ThePokerPlayer.powers.*;
-import ThePokerPlayer.relics.ClubPass;
 import ThePokerPlayer.relics.FairLicense;
 import ThePokerPlayer.vfx.ShowdownEffect;
 import com.badlogic.gdx.Gdx;
@@ -136,8 +135,8 @@ public class ShowdownAction extends AbstractGameAction {
 				if (AbstractDungeon.player.hasPower(ClubShadePower.POWER_ID)) {
 					pow[PokerCard.Suit.Spade.value] += AbstractDungeon.player.getPower(ClubShadePower.POWER_ID).amount * card.multiplier;
 				}
-				if (AbstractDungeon.player.hasRelic(ClubPass.ID)) {
-					pow[PokerCard.Suit.Club.value] += AbstractDungeon.player.getRelic(ClubPass.ID).counter * card.multiplier;
+				if (AbstractDungeon.player.hasPower(ClubPower.POWER_ID)) {
+					pow[PokerCard.Suit.Club.value] += AbstractDungeon.player.getPower(ClubPower.POWER_ID).amount * card.multiplier;
 				}
 			}
 			if (card.suit == PokerCard.Suit.Spade && AbstractDungeon.player.hasPower(HardenPower.POWER_ID)) {

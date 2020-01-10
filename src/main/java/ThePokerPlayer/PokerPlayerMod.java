@@ -9,6 +9,8 @@ import ThePokerPlayer.modules.PokerScoreViewer;
 import ThePokerPlayer.patches.CardColorEnum;
 import ThePokerPlayer.patches.ThePokerPlayerEnum;
 import ThePokerPlayer.relics.*;
+import ThePokerPlayer.screens.PokerManualButton;
+import ThePokerPlayer.screens.PokerManualScreen;
 import ThePokerPlayer.variables.DefaultCustomVariable;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
@@ -54,11 +56,9 @@ public class PokerPlayerMod
 	private static final String AUTHOR = "Celicath";
 	private static final String DESCRIPTION = "Adds a character called The Poker Player, who fights with his own rule inspired from poker.";
 
-	// =============== IMPUT TEXTURE LOCATION =================
-
 	// Colors (RGB)
 	// Character Color
-	public static final Color POKER_PLAYER_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
+	public static final Color POKER_PLAYER_GRAY = CardHelper.getColor(64, 70, 70);
 
 	// Image folder name
 	private static final String POKER_PLAYER_MOD_ASSETS_FOLDER = "PokerPlayerMod/images";
@@ -103,7 +103,7 @@ public class PokerPlayerMod
 			SneckoEye.ID, CentennialPuzzle.ID, RunicPyramid.ID, BagOfPreparation.ID, Pocketwatch.ID, GremlinHorn.ID, PandorasBox.ID, UnceasingTop.ID, DeadBranch.ID
 	));
 	public static final HashSet<String> bannedCards = new HashSet<>(Arrays.asList(
-			DeepBreath.ID, Impatience.ID, MasterOfStrategy.ID, Mayhem.ID, Magnetism.ID, Violence.ID
+			DeepBreath.ID, Impatience.ID, MasterOfStrategy.ID, Mayhem.ID, Magnetism.ID
 	));
 
 	// Configs
@@ -117,19 +117,12 @@ public class PokerPlayerMod
 	ModLabeledToggleButton banContentsButton;
 	ModLabeledToggleButton exordiumAllButton;
 
-	// =============== /INPUT TEXTURE LOCATION/ =================
+	// Screens
+	public static PokerManualScreen pokerManualScreen;
 
-	/**
-	 * Makes a full path for a resource path
-	 *
-	 * @param resource the resource, must *NOT* have a leading "/"
-	 * @return the full path
-	 */
 	public static final String makePath(String resource) {
 		return POKER_PLAYER_MOD_ASSETS_FOLDER + "/" + resource;
 	}
-
-	// =============== SUBSCRIBE, CREATE THE COLOR, INITIALIZE =================
 
 	public PokerPlayerMod() {
 		logger.info("Subscribe to basemod hooks");
@@ -159,11 +152,6 @@ public class PokerPlayerMod
 		PokerPlayerMod mod = new PokerPlayerMod();
 	}
 
-	// ============== /SUBSCRIBE, CREATE THE COLOR, INITIALIZE/ =================
-
-
-	// =============== LOAD THE CHARACTER =================
-
 	@Override
 	public void receiveEditCharacters() {
 		logger.info("begin editing characters. " + "Add " + ThePokerPlayerEnum.THE_POKER_PLAYER.toString());
@@ -174,11 +162,6 @@ public class PokerPlayerMod
 		receiveEditPotions();
 		logger.info("done editing characters");
 	}
-
-	// =============== /LOAD THE CHARACTER/ =================
-
-
-	// =============== POST-INITIALIZE =================
 
 	public static void loadConfig() {
 		int version = 0;
@@ -228,10 +211,8 @@ public class PokerPlayerMod
 
 	@Override
 	public void receivePostInitialize() {
-		// Load the Mod Badge
 		Texture badgeTexture = new Texture(makePath(BADGE_IMAGE));
 
-		// Create the Mod Menu
 		ModPanel settingsPanel = new ModPanel();
 
 		/*
@@ -290,24 +271,16 @@ public class PokerPlayerMod
 		BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
 		pokerScoreViewer = new PokerScoreViewer();
+
+		pokerManualScreen = new PokerManualScreen();
+		BaseMod.addTopPanelItem(new PokerManualButton());
 	}
-
-	// =============== / POST-INITIALIZE/ =================
-
-
-	// ================ ADD POTIONS ===================
-
 
 	public void receiveEditPotions() {
 		logger.info("begin editing potions");
 
 		logger.info("end editing potions");
 	}
-
-	// ================ /ADD POTIONS/ ===================
-
-
-	// ================ ADD RELICS ===================
 
 	@Override
 	public void receiveEditRelics() {
@@ -330,11 +303,6 @@ public class PokerPlayerMod
 
 		logger.info("Done adding relics!");
 	}
-
-	// ================ /ADD RELICS/ ===================
-
-
-	// ================ ADD CARDS ===================
 
 	@Override
 	public void receiveEditCards() {
@@ -402,14 +370,11 @@ public class PokerPlayerMod
 
 		for (CustomCard card : cards) {
 			BaseMod.addCard(card);
-			if (card instanceof PokerCard && !UnlockTracker.isCardSeen(card.cardID)) {
+			if (card instanceof PokerCard) {
 				UnlockTracker.unlockCard(card.cardID);
 			}
 		}
 	}
-
-	// ================ /ADD CARDS/ ===================
-
 
 	@Override
 	public void receivePostDungeonInitialize() {
@@ -432,8 +397,6 @@ public class PokerPlayerMod
 			logger.debug("Colorless card pool count (after) = " + AbstractDungeon.colorlessCardPool.size());
 		}
 	}
-
-	// ================ LOAD THE TEXT ===================
 
 	@Override
 	public void receiveEditStrings() {
@@ -470,8 +433,6 @@ public class PokerPlayerMod
 
 	}
 
-	// ================ /LOAD THE TEXT/ ===================
-
 	public static String getLocCode() {
 		if (Settings.language == Settings.GameLanguage.KOR)
 			return "kor";
@@ -480,8 +441,6 @@ public class PokerPlayerMod
 		else
 			return "eng";
 	}
-
-	// ================ LOAD THE KEYWORDS ===================
 
 	@Override
 	public void receiveEditKeywords() {
@@ -504,8 +463,6 @@ public class PokerPlayerMod
 		}
 		logger.debug("receiveEditKeywords finished.");
 	}
-
-	// ================ /LOAD THE KEYWORDS/ ===================
 
 	@Override
 	public void receiveOnBattleStart(AbstractRoom room) {
@@ -539,8 +496,6 @@ public class PokerPlayerMod
 		return true;
 	}
 
-	// this adds "ModName: " before the ID of any card/relic/power etc.
-	// in order to avoid conflicts if any other mod uses the same ID.
 	public static String makeID(String idText) {
 		return "PokerPlayerMod:" + idText;
 	}
