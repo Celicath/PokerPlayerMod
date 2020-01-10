@@ -15,6 +15,24 @@
       "%."
     ]
   },
+  "PokerPlayerMod:PokerManual": {
+    "TEXT": [
+      "Poker Manual",
+      "View Poker hand details.",
+      "At the end of your turn, you enter Showdown and receive effects from your Poker cards.",
+      "(If you have more than 5 Poker cards in hand, you first discard down to 5.)",
+      "<List of Poker Hands>",
+      "2 cards of one Rank",
+      "2 cards of one Rank, 2 cards of another Rank",
+      "3 cards of one Rank",
+      "5 cards of sequential Rank",
+      "3 cards of one Rank, 2 cards of another Rank",
+      "4 cards of one Rank",
+      "5 cards of one Rank",
+      "5 cards of the same Suit",
+      "Return"
+    ]
+  },
   "PokerPlayerMod:PokerCardType": {
     "TEXT": [
       "Poker"
@@ -24,7 +42,17 @@
     "TEXT": [
       "Showdown Power",
       "This shows the power of each Suit, affected by Buffs, Relics and Poker Hand.",
-      "<Poker Hand Bonuses>"
+      "<Poker Hand Bonuses>",
+      "#rHearts: Heal #b",
+      " HP.",
+      "#bSpades: Gain #b",
+      " Block.",
+      "#pClubs: Deal #b",
+      " damage to ALL enemies.",
+      "#gDiamonds: Deal #b",
+      " damage to the enemy with the lowest HP.",
+      "Also, gain #b",
+      " Block next turn."
     ]
   },
   "PokerPlayerMod:WildCardAction": {

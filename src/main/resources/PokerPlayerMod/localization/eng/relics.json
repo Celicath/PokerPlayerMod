@@ -28,14 +28,15 @@
   },
   "PokerPlayerMod:ClubPass": {
     "NAME": "Club Pass",
-    "FLAVOR": "Of course it's the Club of Joking.",
+    "FLAVOR": "Of course it's the Club of Joke.",
     "DESCRIPTIONS": [
-      "Whenever you play a card containing \"Club\", your #ypokerplayer:Clubs deal #b1 more damage until the end of combat."
+      "Every time you play #b",
+      " cards containing \"Club\", gain #b1 #yClub #yPower. (Your #ypokerplayer:Clubs deal additional damage equal to #yClub #yPower [REMOVE_SPACE].)"
     ]
   },
   "PokerPlayerMod:PenAndEraser": {
     "NAME": "Pen and Eraser",
-    "FLAVOR": "The best tool for \"modifying\" poker cards.",
+    "FLAVOR": "Classic tool to modify poker cards.",
     "DESCRIPTIONS": [
       "Upon pickup, raise the #ypokerplayer:Rank of two random Poker Cards by #b3."
     ]

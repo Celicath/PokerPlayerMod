@@ -16,6 +16,13 @@
       " extra damage."
     ]
   },
+  "PokerPlayerMod:ClubPower": {
+    "NAME": "Club Power",
+    "DESCRIPTIONS": [
+      "During Showdown, your Clubs deal #b",
+      " extra damage."
+    ]
+  },
   "PokerPlayerMod:ClubShadePower": {
     "NAME": "Club Shade",
     "DESCRIPTIONS": [

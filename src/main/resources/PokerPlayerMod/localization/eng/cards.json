@@ -117,7 +117,7 @@
   "PokerPlayerMod:Manipulation": {
     "NAME": "Manipulation",
     "DESCRIPTION": "For the next X turns, gain [E] [E]. NL You may increase the pokerplayer:Rank of one Poker Card by X. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "For the next X turns, gain [E] [E]. NL You may increase the pokerplayer:Rank of one Poker Card by X."
+    "UPGRADE_DESCRIPTION": "For the next X+1 turns, gain [E] [E]. NL You may increase the pokerplayer:Rank of one Poker Card by X+1. NL Exhaust."
   },
   "PokerPlayerMod:SecondChance": {
     "NAME": "Second Chance",
@@ -236,8 +236,8 @@
   },
   "PokerPlayerMod:StackedDeck": {
     "NAME": "Stacked Deck",
-    "DESCRIPTION": "At the start of your turn, Look at the top !M! cards of your draw pile and discard any of them.",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL At the start of your turn, Look at the top !M! cards of your draw pile and discard any of them."
+    "DESCRIPTION": "At the start of your turn, after drawing, Scry !M!.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL At the start of your turn, after drawing, Scry !M!."
   },
   "PokerPlayerMod:SuperBite": {
     "NAME": "Super Bite",
