@@ -205,9 +205,6 @@ public class ShowdownAction extends AbstractGameAction {
 				pow[card.suit.value] += AbstractDungeon.player.getPower(GamblerFormPower.POWER_ID).amount;
 			}
 		}
-		if (hand >= ONE_PAIR || flush) {
-			FairLicense.pokerHandScored = true;
-		}
 
 		modifierBonus = modifierByHand(hand) + (flush ? rawModifierBonus(FLUSH) : 0);
 

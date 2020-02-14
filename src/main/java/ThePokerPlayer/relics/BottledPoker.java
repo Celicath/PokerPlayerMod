@@ -39,7 +39,7 @@ public class BottledPoker extends CustomRelic implements CustomBottleRelic, Cust
 	private static int NUM = 3;
 
 	public BottledPoker() {
-		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.COMMON, LandingSound.CLINK);
+		super(ID, new Texture(IMG), new Texture(OUTLINE), RelicTier.UNCOMMON, LandingSound.CLINK);
 	}
 
 	@Override

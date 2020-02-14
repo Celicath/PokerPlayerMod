@@ -89,7 +89,7 @@
   },
   "PokerPlayerMod:BanContentsConfig": {
     "TEXT": [
-      "밸런스를 해치는 유물과 중립 카드 일부를 등장하지 않게 함"
+      "밸런스가 맞지 않는 유물과 중립 카드를 등장하지 않게 함"
     ]
   },
   "PokerPlayerMod:ExordiumClubConfig": {

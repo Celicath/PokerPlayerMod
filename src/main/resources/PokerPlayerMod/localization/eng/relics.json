@@ -23,7 +23,7 @@
     "NAME": "Fair License",
     "FLAVOR": "Great present for honest people.",
     "DESCRIPTIONS": [
-      "If you do not play any Poker cards during your turn and score any Poker hand, gain [E] [E] next turn."
+      "If you do not play any Poker cards during your turn, gain [E] next turn."
     ]
   },
   "PokerPlayerMod:ClubPass": {

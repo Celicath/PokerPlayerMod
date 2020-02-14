@@ -23,7 +23,7 @@
     "NAME": "페어플레이 자격증",
     "FLAVOR": "정직한 사람에게 주어지는 훌륭한 선물입니다.",
     "DESCRIPTIONS": [
-      "한 턴 동안 포커 카드를 사용하지 않고 아무 족보를 달성하면 다음 턴에 [E] [E] 를 추가로 얻습니다."
+      "한 턴 동안 포커 카드를 사용하지 않으면 다음 턴에 [E] 를 추가로 얻습니다."
     ]
   },
   "PokerPlayerMod:ClubPass": {
@@ -38,7 +38,7 @@
     "NAME": "연필과 지우개",
     "FLAVOR": "포커 카드를 \"수정\" 하기 위한 최고의 도구입니다.",
     "DESCRIPTIONS": [
-      "획득 시 무작위 포커 카드 #b2 장의 #ypokerplayer:등급 을 #b3 증가 시킵니다."
+      "획득 시 무작위 포커 카드 #b2 장의 #ypokerplayer:등급 [REMOVE_SPACE]을 #b3 증가 시킵니다."
     ]
   },
   "PokerPlayerMod:PendantOfEscape": {
@@ -59,7 +59,7 @@
     "NAME": "로우 스플릿",
     "FLAVOR": "낮은 수를 가진 포커 카드의 마법적인 힘을 느껴보세요!",
     "DESCRIPTIONS": [
-      "#ypokerplayer:등급 이 3 이하인 포커 카드를 사용할 때마다, 적 전체에게 피해를 #b",
+      "#ypokerplayer:등급이 3 이하인 포커 카드를 사용할 때마다, 적 전체에게 피해를 #b",
       " 줍니다."
     ]
   },
@@ -89,7 +89,7 @@
     "NAME": "에이스 카드",
     "FLAVOR": "모든 상대를 이기는 으뜸패입니다.",
     "DESCRIPTIONS": [
-      "#ypokerplayer:등급 #b1 포커 카드는 비용이 0이 되고 사용시 #y방어도 를 #b",
+      "#ypokerplayer:등급 #b1 포커 카드는 비용이 0이 되고 사용시 #y방어도 [REMOVE_SPACE]를 #b",
       " 얻습니다."
     ]
   },
