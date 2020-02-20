@@ -117,7 +117,7 @@
   "PokerPlayerMod:Manipulation": {
     "NAME": "操纵",
     "DESCRIPTION": "接下来的 X 个回合， 获得 [E] [E] 。 NL 你可以增加一张扑克牌的 pokerplayer:点数 X 点。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "接下来的 X 个回合， 获得 [E] [E] 。 NL 你可以增加一张扑克牌的 pokerplayer:点数 X 点。"
+    "UPGRADE_DESCRIPTION": "接下来的 X+1 个回合， 获得 [E] [E] 。 NL 你可以增加一张扑克牌的 pokerplayer:点数 X 点。 NL 消耗 。"
   },
   "PokerPlayerMod:SecondChance": {
     "NAME": "二次机会",
@@ -236,8 +236,8 @@
   },
   "PokerPlayerMod:StackedDeck": {
     "NAME": "层叠牌组",
-    "DESCRIPTION": "在你的回合开始时， 查看抽牌堆顶部的的 !M! 张牌以及任意的弃牌堆。",
-    "UPGRADE_DESCRIPTION": "抽 1 张牌。 NL 在你的回合开始时， 查看抽牌堆顶部的的 !M! 张牌以及任意的弃牌堆。"
+    "DESCRIPTION": "在你的回合开始时， 预见 !M! 。",
+    "UPGRADE_DESCRIPTION": "抽 1 张牌。 NL 在你的回合开始时， 预见 !M! 。"
   },
   "PokerPlayerMod:SuperBite": {
     "NAME": "超级噬咬",

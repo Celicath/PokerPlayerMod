@@ -15,6 +15,13 @@
       "摊牌时， 你的方块额外造成 #b",
       " 点伤害。"
     ]
+  }, 
+  "PokerPlayerMod:ClubPower": {
+    "NAME": "梅花之力",
+    "DESCRIPTIONS": [
+      "摊牌时，你的梅花额外造成 #b",
+      " 点伤害。"
+    ]
   },
   "PokerPlayerMod:ClubShadePower": {
     "NAME": "梅花摊牌",

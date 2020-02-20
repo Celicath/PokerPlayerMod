@@ -28,10 +28,10 @@
   },
   "PokerPlayerMod:ClubPass": {
     "NAME": "俱乐部会员",
-    "FLAVOR": "当然,这是一个玩笑中的俱乐部。",
+    "FLAVOR": "当然,这是一个小丑俱乐部。",
     "DESCRIPTIONS": [
-      "每当你打出一张 \"梅花\" 牌，直到在回合结束前，你的 #ypokerplayer:梅花 额外造成 #b1 点伤害。",
-      ""
+      "每当你连续打出 #b",
+      " 张 \"梅花\" 牌时，获得 #b1 层 #y梅花之力 （提高伤害）"
     ]
   },
   "PokerPlayerMod:PenAndEraser": {

@@ -5,8 +5,8 @@
     "Celicath"
   ],
   "credits": "HSymbol - original game\nRita-Bernstein - ZHS translation",
-  "description": "Adds a character called The Poker Player, who fights with his own rule inspired from poker.\n\n- Adds 87 cards and 13 relics.\n- Disables some base game contents which are unbalanced or confusing to the Poker Player. If you don't like this behavior, check out the mod config.\n\nv1.0.0 (2020-01-15)\n- Updated for 2.0 release (Watcher release).\n- Poker Manual was added!\n- Poker Score Viewer tooltip now shows the effect of each Suit.\n- Card changes: Fill the Pot, It's Show Time!, Card Printer, Manipulation\n- Relic changes: Club Pass\n\nv1.0.1 (2020-02-14)\n- Relic changes: Fair License, Bottled Poker\n- Banned content changes: Added Ink Bottle & Art of War.\n- KOR localization update.\n\nFor the full patch notes, visit https://steamcommunity.com/sharedfiles/filedetails/changelog/1710999325\n\n",
-  "version": "1.0.1",
+  "description": "Adds a character called The Poker Player, who fights with his own rule inspired from poker.\n\n- Adds 87 cards and 13 relics.\n- Disables some base game contents which are unbalanced or confusing to the Poker Player. If you don't like this behavior, check out the mod config.\n\nv1.0.0 (2020-01-15)\n- Updated for 2.0 release (Watcher release).\n- Poker Manual was added!\n- Poker Score Viewer tooltip now shows the effect of each Suit.\n- Card changes: Fill the Pot, It's Show Time!, Card Printer, Manipulation\n- Relic changes: Club Pass\n\nv1.0.1 (2020-02-14)\n- Relic changes: Fair License, Bottled Poker\n- Banned content changes: Added Ink Bottle & Art of War.\n\nv1.0.2 (2020-02-20)\n- Relic changes: Actually changed Fair License to a Common relic. Oops.\n- ZHS localization update\n- ENG event typo fix\n\nFor the full patch notes, visit https://steamcommunity.com/sharedfiles/filedetails/changelog/1710999325\n\n",
+  "version": "1.0.2",
   "sts_version": "01-27-2020",
   "mts_version": "3.7.0",
   "dependencies": [
