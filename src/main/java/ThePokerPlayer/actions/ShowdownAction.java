@@ -211,6 +211,10 @@ public class ShowdownAction extends AbstractGameAction {
 		for (int i = 0; i < 4; i++)
 			powView[i] = pow[i] * (100 + modifierBonus) / 100;
 		hardenCount = hardenCount * (100 + modifierBonus) / 100;
+
+		if (PokerPlayerMod.pokerScoreViewer != null) {
+			PokerPlayerMod.pokerScoreViewer.generateTips();
+		}
 	}
 
 	public static int modifierByHand(int hand) {

@@ -30,9 +30,7 @@ import com.megacrit.cardcrawl.cards.colorless.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.*;
@@ -97,6 +95,10 @@ public class PokerPlayerMod
 
 	// Modules
 	public static PokerScoreViewer pokerScoreViewer;
+
+	// SlayTheRelicsExporter
+	public static ArrayList<Hitbox> slayTheRelicsHitboxes = new ArrayList<>();
+	public static ArrayList<ArrayList<PowerTip>> slayTheRelicsPowerTips = new ArrayList<>();
 
 	// Bans
 	public static final ArrayList<String> bannedRelics = new ArrayList<>(Arrays.asList(

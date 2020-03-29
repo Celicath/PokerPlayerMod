@@ -8,9 +8,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+
+import java.util.ArrayList;
 
 import static ThePokerPlayer.cards.PokerCard.SUIT_HEIGHT;
 import static ThePokerPlayer.cards.PokerCard.SUIT_WIDTH;
@@ -18,7 +21,6 @@ import static ThePokerPlayer.cards.PokerCard.SUIT_WIDTH;
 public class PokerScoreViewer {
 	private Hitbox hb;
 	private Hitbox[] childHb;
-	private static UIStrings uiStrings = null;
 	public static String[] TEXT = null;
 
 	private static final int width = 240;
@@ -32,6 +34,8 @@ public class PokerScoreViewer {
 	private float startx;
 	private float starty;
 
+	public static String genericTip;
+
 	public PokerScoreViewer() {
 		hb = new Hitbox(width * Settings.scale, height * Settings.scale);
 		hb.move(Settings.WIDTH / 2.0f, Settings.HEIGHT * 0.79f);
@@ -40,8 +44,9 @@ public class PokerScoreViewer {
 			float dx = Settings.scale * distance;
 			childHb[i] = new Hitbox(dx, height * Settings.scale);
 			childHb[i].move(hb.cX + dx * (i - 1.5f), hb.cY);
+			PokerPlayerMod.slayTheRelicsHitboxes.add(childHb[i]);
 		}
-		uiStrings = CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("PokerScoreViewer"));
+		UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("PokerScoreViewer"));
 		TEXT = uiStrings.TEXT;
 	}
 
@@ -132,7 +137,22 @@ public class PokerScoreViewer {
 					break;
 				}
 			}
-			TipHelper.renderGenericTip((float) InputHelper.mX + 50.0F * Settings.scale, (float) InputHelper.mY, TEXT[0], getTipBody(index));
+			if (index >= PokerPlayerMod.slayTheRelicsPowerTips.size()) {
+				index = -1;
+			}
+			if (index == -1) {
+				TipHelper.renderGenericTip(
+						(float) InputHelper.mX + 50.0F * Settings.scale,
+						(float) InputHelper.mY,
+						TEXT[0],
+						genericTip);
+			} else {
+				TipHelper.renderGenericTip(
+						(float) InputHelper.mX + 50.0F * Settings.scale,
+						(float) InputHelper.mY,
+						TEXT[0],
+						PokerPlayerMod.slayTheRelicsPowerTips.get(index).get(0).body);
+			}
 		}
 
 		hb.render(sb);
@@ -141,30 +161,38 @@ public class PokerScoreViewer {
 		}
 	}
 
-	public String getTipBody(int index) {
-		String result = TEXT[1] + " NL " + TEXT[2];
+	public void generateTips() {
+		PokerPlayerMod.slayTheRelicsPowerTips.clear();
+
+		genericTip = TEXT[1] + " NL " + TEXT[2];
 
 		for (int i = 1; i <= ShowdownAction.FIVE_CARD; i++) {
 			if (i == ShowdownAction.hand) {
-				result += " NL " + highlightedText(ShowdownAction.TEXT[i]) + " : #b+" + ShowdownAction.modifierByHand(i) + "%";
+				genericTip += " NL " + highlightedText(ShowdownAction.TEXT[i]) + " : #b+" + ShowdownAction.modifierByHand(i) + "%";
 			} else {
-				result += " NL " + ShowdownAction.TEXT[i] + " : #b+" + ShowdownAction.modifierByHand(i) + "%";
+				genericTip += " NL " + ShowdownAction.TEXT[i] + " : #b+" + ShowdownAction.modifierByHand(i) + "%";
 			}
 		}
 
 		if (ShowdownAction.flush) {
-			result += " NL" + highlightedText(ShowdownAction.TEXT[ShowdownAction.FLUSH]) + " : #b+" + ShowdownAction.rawModifierBonus(ShowdownAction.FLUSH) + "%";
+			genericTip += " NL" + highlightedText(ShowdownAction.TEXT[ShowdownAction.FLUSH]) + " : #b+" + ShowdownAction.rawModifierBonus(ShowdownAction.FLUSH) + "%";
 		} else {
-			result += " NL" + ShowdownAction.TEXT[ShowdownAction.FLUSH] + " : #b+" + ShowdownAction.rawModifierBonus(ShowdownAction.FLUSH) + "%";
+			genericTip += " NL" + ShowdownAction.TEXT[ShowdownAction.FLUSH] + " : #b+" + ShowdownAction.rawModifierBonus(ShowdownAction.FLUSH) + "%";
 		}
 
-		if (index != -1 && TEXT.length > 3) {
-			result += " NL NL " + TEXT[index * 2 + 3] + ShowdownAction.powView[index] + TEXT[index * 2 + 4];
-			if (index == 1 && ShowdownAction.hardenCount > 0) {
-				result += " NL " + TEXT[11] + ShowdownAction.hardenCount + TEXT[12];
+		for (int i = 0; i < 4; i++) {
+			ArrayList<PowerTip> tooltips = new ArrayList<>();
+			if (TEXT.length > 3) {
+				String thisTip = TEXT[i * 2 + 3] + ShowdownAction.powView[i] + TEXT[i * 2 + 4];
+				if (i == 1 && ShowdownAction.hardenCount > 0) {
+					thisTip += " NL " + TEXT[11] + ShowdownAction.hardenCount + TEXT[12];
+				}
+				tooltips.add(new PowerTip(TEXT[0], genericTip + " NL NL " + thisTip));
+			} else {
+				tooltips.add(new PowerTip(TEXT[0], genericTip));
 			}
+			PokerPlayerMod.slayTheRelicsPowerTips.add(tooltips);
 		}
-		return result;
 	}
 
 	public String highlightedText(String text) {

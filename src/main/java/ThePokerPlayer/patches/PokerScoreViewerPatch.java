@@ -30,6 +30,8 @@ public class PokerScoreViewerPatch {
 			if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
 					AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER && !ShowdownAction.onAction) {
 				PokerPlayerMod.pokerScoreViewer.update();
+			} else {
+				PokerPlayerMod.slayTheRelicsPowerTips.clear();
 			}
 		}
 	}
