@@ -4,7 +4,6 @@ import ThePokerPlayer.PokerPlayerMod;
 import ThePokerPlayer.cards.JackOfSpades;
 import ThePokerPlayer.cards.PokerCard;
 import ThePokerPlayer.powers.*;
-import ThePokerPlayer.relics.FairLicense;
 import ThePokerPlayer.vfx.ShowdownEffect;
 import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

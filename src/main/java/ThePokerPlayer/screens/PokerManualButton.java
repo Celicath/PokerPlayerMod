@@ -1,7 +1,6 @@
 package ThePokerPlayer.screens;
 
 import ThePokerPlayer.PokerPlayerMod;
-import ThePokerPlayer.characters.ThePokerPlayer;
 import ThePokerPlayer.patches.CurrentScreenEnum;
 import basemod.TopPanelItem;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,7 +21,7 @@ public class PokerManualButton extends TopPanelItem {
 
 	@Override
 	protected void onClick() {
-		if (AbstractDungeon.player instanceof ThePokerPlayer && !CardCrawlGame.isPopupOpen) {
+		if (!CardCrawlGame.isPopupOpen) {
 			toggleScreen();
 		}
 	}
@@ -82,13 +81,11 @@ public class PokerManualButton extends TopPanelItem {
 
 	@Override
 	public void render(SpriteBatch sb) {
-		if (AbstractDungeon.player instanceof ThePokerPlayer) {
-			super.render(sb);
-			if (hitbox.hovered) {
-				float x = 1550.0F * Settings.scale;
-				float y = (float) Settings.HEIGHT - 120.0F * Settings.scale;
-				TipHelper.renderGenericTip(x, y, PokerManualScreen.TEXT[0], PokerManualScreen.TEXT[1]);
-			}
+		super.render(sb);
+		if (hitbox.hovered) {
+			float x = 1550.0F * Settings.scale;
+			float y = (float) Settings.HEIGHT - 120.0F * Settings.scale;
+			TipHelper.renderGenericTip(x, y, PokerManualScreen.TEXT[0], PokerManualScreen.TEXT[1]);
 		}
 	}
 }

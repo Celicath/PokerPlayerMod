@@ -46,7 +46,7 @@ import java.util.*;
 public class PokerPlayerMod
 		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
 		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
-		PostDungeonInitializeSubscriber {
+		PostDungeonInitializeSubscriber, StartGameSubscriber {
 	public static final Logger logger = LogManager.getLogger(PokerPlayerMod.class.getName());
 
 	//This is for the in-game mod settings pannel.
@@ -122,6 +122,8 @@ public class PokerPlayerMod
 
 	// Screens
 	public static PokerManualScreen pokerManualScreen;
+	public static PokerManualButton pokerManualButton;
+	boolean topPanelAdded = false;
 
 	public static final String makePath(String resource) {
 		return POKER_PLAYER_MOD_ASSETS_FOLDER + "/" + resource;
@@ -276,7 +278,20 @@ public class PokerPlayerMod
 		pokerScoreViewer = new PokerScoreViewer();
 
 		pokerManualScreen = new PokerManualScreen();
-		BaseMod.addTopPanelItem(new PokerManualButton());
+		pokerManualButton = new PokerManualButton();
+	}
+
+	@Override
+	public void receiveStartGame() {
+		if (AbstractDungeon.player instanceof ThePokerPlayer) {
+			if (!topPanelAdded) {
+				BaseMod.addTopPanelItem(pokerManualButton);
+				topPanelAdded = true;
+			}
+		} else if (topPanelAdded) {
+			BaseMod.removeTopPanelItem(pokerManualButton);
+			topPanelAdded = false;
+		}
 	}
 
 	public void receiveEditPotions() {
