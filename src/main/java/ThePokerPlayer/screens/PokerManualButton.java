@@ -29,12 +29,7 @@ public class PokerManualButton extends TopPanelItem {
 
 	private static void toggleScreen() {
 		if (AbstractDungeon.screen == CurrentScreenEnum.POKER_MANUAL) {
-			if (PokerPlayerMod.pokerManualScreen.openedDuringReward) {
-				PokerPlayerMod.pokerManualScreen.openedDuringReward = false;
-				AbstractDungeon.combatRewardScreen.reopen();
-			} else {
-				AbstractDungeon.closeCurrentScreen();
-			}
+			AbstractDungeon.closeCurrentScreen();
 		} else {
 			if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD) {
 				AbstractDungeon.closeCurrentScreen();

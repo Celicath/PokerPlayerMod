@@ -23,9 +23,6 @@ public class PokerManualScreen {
 	public static final int CARD_WIDTH = 62;
 	public static final int CARD_HEIGHT = 74;
 
-	private float yScale;
-
-	public boolean openedDuringReward;
 	public static final int[] numCardDraws = new int[]{2, 4, 3, 5, 5, 4, 5, 5};
 	public int[][] exampleHands = new int[8][5];
 
@@ -43,8 +40,6 @@ public class PokerManualScreen {
 		CardCrawlGame.sound.play(MathUtils.randomBoolean() ? "MAP_OPEN" : "MAP_OPEN_2", 0.1f);
 
 		randomizePokerHands();
-
-		this.yScale = 0.0f;
 	}
 
 	public void close() {
@@ -54,8 +49,6 @@ public class PokerManualScreen {
 
 	public void render(SpriteBatch sb) {
 		sb.setColor(Color.WHITE);
-
-		yScale = MathHelper.scaleLerpSnap(yScale, 1.0f);
 
 		FontHelper.renderFontLeft(sb, FontHelper.panelNameFont, TEXT[2], 400 * Settings.scale, 850 * Settings.scale, Color.WHITE);
 		FontHelper.renderFontLeft(sb, FontHelper.panelNameFont, TEXT[3], 400 * Settings.scale, 800 * Settings.scale, Color.WHITE);
