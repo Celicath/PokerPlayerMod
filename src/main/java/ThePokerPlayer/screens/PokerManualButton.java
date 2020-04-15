@@ -74,7 +74,9 @@ public class PokerManualButton extends TopPanelItem {
 
 				AbstractDungeon.closeCurrentScreen();
 			}
-			PokerPlayerMod.pokerManualScreen.open();
+			if (AbstractDungeon.screen != AbstractDungeon.CurrentScreen.VICTORY) {
+				PokerPlayerMod.pokerManualScreen.open();
+			}
 		}
 		InputHelper.justClickedLeft = false;
 	}
