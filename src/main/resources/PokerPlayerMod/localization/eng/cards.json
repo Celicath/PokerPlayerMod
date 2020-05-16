@@ -222,7 +222,7 @@
   },
   "PokerPlayerMod:WildCard": {
     "NAME": "Wild Card",
-    "DESCRIPTION": "Choose 1 from ALL Poker Cards to add into your hand. NL Exhaust."
+    "DESCRIPTION": "Choose 1 from ALL pokerplayer:non-Heart Poker Cards to add into your hand. NL Exhaust."
   },
   "PokerPlayerMod:FakeSymbols": {
     "NAME": "Fake Symbols",

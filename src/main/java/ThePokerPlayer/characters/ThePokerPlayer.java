@@ -183,7 +183,7 @@ public class ThePokerPlayer extends CustomPlayer {
 	// Should return a color object to be used to color the trail of moving pokerCards
 	@Override
 	public Color getCardTrailColor() {
-		return PokerPlayerMod.POKER_PLAYER_GRAY;
+		return PokerPlayerMod.POKER_PLAYER_GRAY.cpy();
 	}
 
 	// Should return a BitmapFont object that you can use to customize how your
@@ -220,7 +220,7 @@ public class ThePokerPlayer extends CustomPlayer {
 	// Should return a Color object to be used to color the miniature card images in run history.
 	@Override
 	public Color getCardRenderColor() {
-		return PokerPlayerMod.POKER_PLAYER_GRAY;
+		return PokerPlayerMod.POKER_PLAYER_GRAY.cpy();
 	}
 
 	// Should return a Color object to be used as screen tint effect when your

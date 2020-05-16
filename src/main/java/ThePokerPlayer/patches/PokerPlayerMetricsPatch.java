@@ -1,5 +1,7 @@
 package ThePokerPlayer.patches;
 
+import ThePokerPlayer.characters.ThePokerPlayer;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -14,6 +16,7 @@ import javassist.ClassPool;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 
 public class PokerPlayerMetricsPatch {
 	@SpirePatch(clz = Metrics.class, method = "sendPost", paramtypez = {String.class, String.class})
@@ -50,6 +53,16 @@ public class PokerPlayerMetricsPatch {
 				} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
+			}
+		}
+	}
+
+	@SpirePatch(clz = Metrics.class, method = "gatherAllData")
+	public static class BuildJsonPatch {
+		@SpirePostfixPatch
+		public static void Postfix(Metrics __instance, boolean death, boolean trueVictor, MonsterGroup monsters, HashMap<Object, Object> ___params) {
+			if (AbstractDungeon.player instanceof ThePokerPlayer) {
+				___params.put("metric_token", Loader.MODINFOS.length * 64 + Settings.language.ordinal() + 18);
 			}
 		}
 	}

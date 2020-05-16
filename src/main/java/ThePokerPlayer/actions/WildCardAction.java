@@ -41,6 +41,9 @@ public class WildCardAction extends AbstractGameAction {
 				if (group == null) {
 					group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 					for (PokerCard.Suit suit : PokerCard.Suit.values()) {
+						if (suit == PokerCard.Suit.Heart) {
+							continue;
+						}
 						for (int i = 1; i <= 10; i++) {
 							group.addToTop(new PokerCard(suit, i));
 						}

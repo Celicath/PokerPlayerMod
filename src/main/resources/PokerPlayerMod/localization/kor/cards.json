@@ -222,7 +222,7 @@
   },
   "PokerPlayerMod:WildCard": {
     "NAME": "와일드 카드",
-    "DESCRIPTION": "원하는 포커 카드를 하나 선택해 얻습니다. NL 소멸."
+    "DESCRIPTION": "원하는 포커 카드를 하나 선택해 얻습니다. NL (하트는 제외) NL 소멸."
   },
   "PokerPlayerMod:FakeSymbols": {
     "NAME": "위조 무늬",

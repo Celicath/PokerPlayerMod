@@ -222,7 +222,7 @@
   },
   "PokerPlayerMod:WildCard": {
     "NAME": "通用扑克",
-    "DESCRIPTION": "从全部扑克牌中选择一张加入你的手牌。 NL 消耗 。"
+    "DESCRIPTION": "从所有的非 pokerplayer:红桃 pokerplayer:扑克牌 中选择一张加入你的手牌。 NL 消耗 。"
   },
   "PokerPlayerMod:FakeSymbols": {
     "NAME": "伪造花色",
