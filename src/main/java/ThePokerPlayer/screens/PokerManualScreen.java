@@ -83,7 +83,7 @@ public class PokerManualScreen {
 
 				if (i < 7) {
 					String s = Integer.toString(exampleHands[i][j]);
-					FontHelper.renderFontCentered(sb, FontHelper.textOnlyEventTitle, s, x, y, Color.LIME);
+					FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, s, x, y, Color.LIME);
 				} else {
 					sb.draw(
 							PokerCard.SUIT_TO_IMG[exampleHands[i][j]],

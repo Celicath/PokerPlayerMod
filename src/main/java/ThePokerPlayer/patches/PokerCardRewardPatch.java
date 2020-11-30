@@ -27,10 +27,10 @@ public class PokerCardRewardPatch {
 	public static final int[] RATIO_SUIT = new int[]{1, 3, 2, 4};
 
 	public static void replaceHalf(ArrayList<AbstractCard> list, boolean canDuplicate) {
-		for (int pos = 0; pos < (list.size() + 1) / 2; pos++) {
+		for (int pos = 0; pos < list.size(); pos++) {
 			int value = AbstractDungeon.cardRng.random(1999);
-			if (pos * 2 + 1 == list.size() && value < 1000) {
-				break;
+			if (value < 1000) {
+				continue;
 			}
 			int num = value % 1000;
 			int suitNum = num % 10;

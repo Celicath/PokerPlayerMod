@@ -30,7 +30,7 @@ public class PokerCardRewardOtherPatch {
 						int rank = num % 10 + 1;
 						pc = new PokerCard(suit, rank);
 						for (int j = 0; j < i; j++) {
-							if (group.group.get(j).cardID.equals(pc)) {
+							if (group.group.get(j).cardID.equals(pc.cardID)) {
 								dup = true;
 								break;
 							}
