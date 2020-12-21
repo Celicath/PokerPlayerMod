@@ -144,7 +144,7 @@ public class DiceThrowEffect extends AbstractGameEffect {
 			AbstractDungeon.cardRandomRng.random(48);
 		}
 
-		rngCopy = new Random(Settings.seed, AbstractDungeon.cardRandomRng.counter);
+		rngCopy = AbstractDungeon.cardRandomRng.copy();
 		t = 0;
 
 		vertex = new Vector3[8];

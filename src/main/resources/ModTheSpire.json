@@ -5,9 +5,9 @@
     "Celicath"
   ],
   "credits": "HSymbol - original game\nRita-Bernstein - ZHS translation",
-  "description": "Adds a character called The Poker Player, who fights with his own rule inspired from poker.\n\n- Adds 87 cards and 13 relics.\n- Disables some base game contents which are unbalanced or confusing to the Poker Player. If you don't like this behavior, check out the mod config.\n\nv1.0.5 (2020-11-30)\n- Update for Slay the Spire v2.2\n- Fix The Library event having duplicate Poker cards.\n- Now every card in card rewards has 50% chance to be a Poker Card.\n\nFor the full patch notes, visit https://steamcommunity.com/sharedfiles/filedetails/changelog/1710999325\n\n",
-  "version": "1.0.5",
-  "sts_version": "11-29-2020",
+  "description": "Adds a character called The Poker Player, who fights with his own rule inspired from poker.\n\n- Adds 87 cards and 13 relics.\n- Disables some base game contents which are unbalanced or confusing to the Poker Player. If you don't like this behavior, check out the mod config.\n\nv1.0.5 (2020-11-30)\n- Update for Slay the Spire v2.2\n- Fix The Library event having duplicate Poker cards.\n\nv1.0.6 (2020-12-21)\n- Bugfix: The Die is Cast no longer rolls the same number repeatedly.\n\nFor the full patch notes, visit https://steamcommunity.com/sharedfiles/filedetails/changelog/1710999325\n\n",
+  "version": "1.0.6",
+  "sts_version": "12-13-2020",
   "mts_version": "3.7.0",
   "dependencies": [
     "basemod",
