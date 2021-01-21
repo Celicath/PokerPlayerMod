@@ -55,6 +55,9 @@ public class WildCardAction extends AbstractGameAction {
 						groupWithClock.addToTop(new BrokenClockChoice());
 					}
 					for (PokerCard.Suit suit : PokerCard.Suit.values()) {
+						if (suit == PokerCard.Suit.Heart) {
+							continue;
+						}
 						for (int i = 1; i <= 10; i++) {
 							groupWithClock.addToTop(new PokerCard(suit, i));
 						}
