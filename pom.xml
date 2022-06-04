@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>pokerplayermod</groupId>
     <artifactId>pokerplayermod</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <packaging>jar</packaging>
 
     <name>PokerPlayerMod</name>
@@ -85,7 +85,7 @@
                         <configuration>
                             <target>
                                 <copy file="target/PokerPlayerMod.jar"
-                                      tofile="D:\Steam\steamapps\common\SlayTheSpire\mods\PokerPlayerMod.jar"/>
+                                      tofile="C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\PokerPlayerMod.jar"/>
                             </target>
                         </configuration>
                         <goals>

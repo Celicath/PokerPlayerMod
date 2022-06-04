@@ -99,7 +99,7 @@ public class BottledPoker extends CustomRelic implements CustomBottleRelic, Cust
 		if (cardIndexes != null) {
 			bottledCards = new ArrayList<>();
 			for (int i : cardIndexes) {
-				if (i < AbstractDungeon.player.masterDeck.group.size()) {
+				if (i < AbstractDungeon.player.masterDeck.group.size() && i >= 0) {
 					AbstractCard c = AbstractDungeon.player.masterDeck.group.get(i);
 					bottledCards.add(c);
 					BottledPokerField.inBottledPoker.set(c, true);
