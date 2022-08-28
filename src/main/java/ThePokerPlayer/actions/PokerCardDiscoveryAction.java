@@ -55,7 +55,7 @@ public class PokerCardDiscoveryAction extends AbstractGameAction {
 						AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, 1));
 					} else {
 						AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(
-								AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy(), true));
+							AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy(), true));
 					}
 					AbstractDungeon.cardRewardScreen.discoveryCard = null;
 

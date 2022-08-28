@@ -41,9 +41,9 @@ public class OverdealAction extends AbstractGameAction {
 
 		for (int i = 0; i < effect; ++i) {
 			AbstractDungeon.actionManager.addToBottom(new MakePokerCardInHandAction(
-					PokerCard.Suit.values()[AbstractDungeon.cardRandomRng.random(3)],
-					AbstractDungeon.cardRandomRng.random(1, 10),
-					false));
+				PokerCard.Suit.values()[AbstractDungeon.cardRandomRng.random(3)],
+				AbstractDungeon.cardRandomRng.random(1, 10),
+				false));
 		}
 
 		if (effect > 0 && !this.freeToPlayOnce) {

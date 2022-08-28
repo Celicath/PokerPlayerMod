@@ -19,11 +19,11 @@ public class DiscoveryPatch {
 
 	public static PokerCard getRandomPokerCard() {
 		return new PokerCard(
-				PokerCardDiscoveryAction.suit == null ?
-						PokerCard.Suit.values()[AbstractDungeon.cardRandomRng.random(2) + 1] :
-						PokerCardDiscoveryAction.suit,
-				AbstractDungeon.cardRandomRng.random(PokerCardDiscoveryAction.min, PokerCardDiscoveryAction.max),
-				PokerCardDiscoveryAction.ethereal);
+			PokerCardDiscoveryAction.suit == null ?
+				PokerCard.Suit.values()[AbstractDungeon.cardRandomRng.random(2) + 1] :
+				PokerCardDiscoveryAction.suit,
+			AbstractDungeon.cardRandomRng.random(PokerCardDiscoveryAction.min, PokerCardDiscoveryAction.max),
+			PokerCardDiscoveryAction.ethereal);
 	}
 
 	@SpirePatch(clz = CardRewardScreen.class, method = "discoveryOpen", paramtypez = {})

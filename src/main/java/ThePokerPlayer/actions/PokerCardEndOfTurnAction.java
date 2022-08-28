@@ -39,7 +39,7 @@ public class PokerCardEndOfTurnAction extends AbstractGameAction {
 					AbstractDungeon.player.getRelic(StuffedPocket.ID).flash();
 				} else {
 					AbstractDungeon.actionManager.addToBottom(new DiscardAction(
-							AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.hand.group.size() - 5, false, true));
+						AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.hand.group.size() - 5, false, true));
 				}
 			}
 			for (AbstractPower pow : AbstractDungeon.player.powers) {

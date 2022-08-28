@@ -23,22 +23,22 @@ public class SingleCardViewPatch {
 					float dx = PokerCard.OFFSETS_X[tnc.rank - 1][i];
 					float dy = PokerCard.OFFSETS_Y[tnc.rank - 1][i];
 					sb.draw(
-							tnc.suit.getImage(),
-							(float) Settings.WIDTH / 2.0F - PokerCard.SUIT_WIDTH,
-							(float) Settings.HEIGHT / 2.0F - PokerCard.SUIT_HEIGHT + 72.0F * Settings.scale,
-							PokerCard.SUIT_WIDTH - dx * 2,
-							PokerCard.SUIT_HEIGHT - 72.0f - dy * 2,
-							PokerCard.SUIT_WIDTH * 2,
-							PokerCard.SUIT_HEIGHT * 2,
-							scale,
-							scale,
-							0.0F,
-							0,
-							0,
-							PokerCard.SUIT_WIDTH,
-							PokerCard.SUIT_HEIGHT,
-							false,
-							false);
+						tnc.suit.getImage(),
+						(float) Settings.WIDTH / 2.0F - PokerCard.SUIT_WIDTH,
+						(float) Settings.HEIGHT / 2.0F - PokerCard.SUIT_HEIGHT + 72.0F * Settings.scale,
+						PokerCard.SUIT_WIDTH - dx * 2,
+						PokerCard.SUIT_HEIGHT - 72.0f - dy * 2,
+						PokerCard.SUIT_WIDTH * 2,
+						PokerCard.SUIT_HEIGHT * 2,
+						scale,
+						scale,
+						0.0F,
+						0,
+						0,
+						PokerCard.SUIT_WIDTH,
+						PokerCard.SUIT_HEIGHT,
+						false,
+						false);
 				}
 			}
 		}

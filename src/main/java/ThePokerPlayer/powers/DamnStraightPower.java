@@ -1,6 +1,7 @@
 package ThePokerPlayer.powers;
 
 import ThePokerPlayer.PokerPlayerMod;
+import ThePokerPlayer.actions.ShowdownAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,9 +18,9 @@ public class DamnStraightPower extends AbstractPower {
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	public static final TextureAtlas.AtlasRegion IMG128 = new TextureAtlas.AtlasRegion(
-			ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 128)), 0, 0, 90, 88);
+		ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 128)), 0, 0, 90, 88);
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
-			ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 48)), 0, 0, 33, 32);
+		ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 48)), 0, 0, 33, 32);
 
 	public DamnStraightPower(AbstractCreature owner, AbstractCreature source, int amount) {
 		this.name = NAME;
@@ -35,13 +36,19 @@ public class DamnStraightPower extends AbstractPower {
 	}
 
 	@Override
+	public void stackPower(int stackAmount) {
+		super.stackPower(stackAmount);
+		if (amount >= 16) {
+			amount = 16;
+		}
+	}
+
+	@Override
 	public void updateDescription() {
 		if (this.amount == 1) {
 			this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
-		} else if (this.amount < 24) {
-			this.description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + (1 << this.amount) + DESCRIPTIONS[3];
 		} else {
-			this.description = DESCRIPTIONS[0] + DESCRIPTIONS[4];
+			this.description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + ShowdownAction.modifierByHand(ShowdownAction.STRAIGHT) + DESCRIPTIONS[3];
 		}
 	}
 }

@@ -20,8 +20,8 @@ public class ShopPatch {
 			if (AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
 				coloredCards.set(2, coloredCards.get(1));
 				int[] n = new int[]{
-						AbstractDungeon.cardRng.random(39),
-						AbstractDungeon.cardRng.random(38)
+					AbstractDungeon.cardRng.random(39),
+					AbstractDungeon.cardRng.random(38)
 				};
 				if (n[1] >= n[0]) {
 					n[1]++;

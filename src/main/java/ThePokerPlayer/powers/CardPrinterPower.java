@@ -21,9 +21,9 @@ public class CardPrinterPower extends AbstractPower implements NonStackablePower
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	public static final TextureAtlas.AtlasRegion IMG128 = new TextureAtlas.AtlasRegion(
-			ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 128)), 0, 0, 84, 84);
+		ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 128)), 0, 0, 84, 84);
 	public static final TextureAtlas.AtlasRegion IMG48 = new TextureAtlas.AtlasRegion(
-			ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
+		ImageMaster.loadImage(PokerPlayerMod.GetPowerPath(RAW_ID, 48)), 0, 0, 32, 32);
 
 	public CardPrinterPower(AbstractCreature owner, AbstractCreature source, int amount) {
 		this.name = NAME;
@@ -41,8 +41,8 @@ public class CardPrinterPower extends AbstractPower implements NonStackablePower
 	@Override
 	public void atStartOfTurn() {
 		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(
-				new PokerCard(PokerCard.Suit.values()[AbstractDungeon.cardRandomRng.random(2) + 1], amount),
-				1, true, true));
+			new PokerCard(PokerCard.Suit.values()[AbstractDungeon.cardRandomRng.random(2) + 1], amount),
+			1, true, true));
 		this.flash();
 	}
 

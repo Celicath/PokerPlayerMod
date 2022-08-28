@@ -54,10 +54,10 @@ public class ShowdownAction extends AbstractGameAction {
 	public static final int BONUS1 = 10;
 	public static final int BONUS2 = 11;
 	private static final int[] MODIFIER_BONUS = new int[]{
-			0, 25, 50, 100, 200, 150, 200, 250, 0, 150
+		0, 25, 50, 100, 200, 150, 200, 250, 0, 150
 	};
 	private static final int[] MODIFIER_BONUS_HARD = new int[]{
-			0, 25, 50, 100, 200, 150, 200, 250, 0, 150
+		0, 25, 50, 100, 200, 150, 200, 250, 0, 150
 	};
 
 	public static LinkedList<ImmutablePair<PokerCard.Suit, AbstractMonster>> pendingEffects = new LinkedList<>();
@@ -96,8 +96,8 @@ public class ShowdownAction extends AbstractGameAction {
 		}
 		if (PokerCardChangeAction.ref != null) {
 			if (PokerCardChangeAction.ref.mode == RANK_CHANGE_ANY &&
-					PokerCardChangeAction.ref.rankChange > 0 &&
-					AbstractDungeon.handCardSelectScreen.upgradePreviewCard instanceof PokerCard) {
+				PokerCardChangeAction.ref.rankChange > 0 &&
+				AbstractDungeon.handCardSelectScreen.upgradePreviewCard instanceof PokerCard) {
 				ShowdownAction.pokerCards.add((PokerCard) AbstractDungeon.handCardSelectScreen.upgradePreviewCard);
 			} else if (PokerCardChangeAction.ref.mode == RANK_CHANGE_SET) {
 				for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
@@ -221,9 +221,9 @@ public class ShowdownAction extends AbstractGameAction {
 		if (hand == STRAIGHT) {
 			int straightModifier = 1;
 			if (AbstractDungeon.currMapNode != null &&
-					AbstractDungeon.getCurrRoom() != null &&
-					AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-					AbstractDungeon.player.hasPower(DamnStraightPower.POWER_ID)) {
+				AbstractDungeon.getCurrRoom() != null &&
+				AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
+				AbstractDungeon.player.hasPower(DamnStraightPower.POWER_ID)) {
 				straightModifier <<= AbstractDungeon.player.getPower(DamnStraightPower.POWER_ID).amount;
 			}
 			result *= straightModifier;
@@ -265,7 +265,7 @@ public class ShowdownAction extends AbstractGameAction {
 		if (timer <= 0.0f && index < pow.length) {
 			if (pow[index] > 0) {
 				AbstractDungeon.effectList.add(
-						new ShowdownEffect(PokerCard.Suit.values()[index])
+					new ShowdownEffect(PokerCard.Suit.values()[index])
 				);
 				timer = DUR_DELTA;
 				this.duration = DUR;
@@ -310,7 +310,7 @@ public class ShowdownAction extends AbstractGameAction {
 			}
 			if (hardenCount > 0) {
 				AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p,
-						new NextTurnBlockPower(p, hardenCount, p.getPower(HardenPower.POWER_ID).name), hardenCount));
+					new NextTurnBlockPower(p, hardenCount, p.getPower(HardenPower.POWER_ID).name), hardenCount));
 			}
 			pokerCards.clear();
 			otherCards.clear();
@@ -331,9 +331,9 @@ public class ShowdownAction extends AbstractGameAction {
 			case Diamond:
 				if (target != null && !target.isDying && target.currentHealth > 0 && !target.isEscaping) {
 					AbstractDungeon.effectList.add(new FlashAtkImgEffect(
-							target.hb.cX,
-							target.hb.cY,
-							AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+						target.hb.cX,
+						target.hb.cY,
+						AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 					target.damage(new DamageInfo(p, eff, DamageInfo.DamageType.THORNS));
 				}
 				break;
@@ -346,9 +346,9 @@ public class ShowdownAction extends AbstractGameAction {
 					AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
 					if (m != null && !m.isDying && m.currentHealth > 0 && !m.isEscaping) {
 						AbstractDungeon.effectList.add(new FlashAtkImgEffect(
-								m.hb.cX,
-								m.hb.cY,
-								AbstractGameAction.AttackEffect.FIRE, !first));
+							m.hb.cX,
+							m.hb.cY,
+							AbstractGameAction.AttackEffect.FIRE, !first));
 						first = false;
 						m.damage(new DamageInfo(p, eff, DamageInfo.DamageType.THORNS));
 					}

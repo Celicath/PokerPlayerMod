@@ -45,8 +45,8 @@ public class ClubStrike extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
-				new DamageInfo(p, this.damage, this.damageTypeForTurn),
-				AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+			new DamageInfo(p, this.damage, this.damageTypeForTurn),
+			AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 		AbstractDungeon.actionManager.addToBottom(new MakePokerCardInHandAction(PokerCard.Suit.Club, this.magicNumber, true));
 	}
 

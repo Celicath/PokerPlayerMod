@@ -57,8 +57,8 @@ public class ExordiumClub extends AbstractImageEvent {
 			AbstractDungeon.player.masterDeck.removeCard(c);
 
 			PokerCard replacement = new PokerCard(
-					PokerCard.Suit.Club,
-					AbstractDungeon.miscRng.random(1, 10));
+				PokerCard.Suit.Club,
+				AbstractDungeon.miscRng.random(1, 10));
 			AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(replacement, com.megacrit.cardcrawl.core.Settings.WIDTH / 2.0F, com.megacrit.cardcrawl.core.Settings.HEIGHT / 2.0F));
 			AbstractDungeon.gridSelectScreen.selectedCards.clear();
 

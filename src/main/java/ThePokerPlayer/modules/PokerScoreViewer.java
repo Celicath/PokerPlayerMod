@@ -99,34 +99,34 @@ public class PokerScoreViewer {
 		for (int i = 0; i < PokerCard.Suit.values().length; i++) {
 			float dx = Settings.scale * (distance * (i - 1.5f));
 			sb.draw(
-					PokerCard.Suit.values()[i].getImage(),
-					hb.cX + dx - DIST,
-					hb.cY,
-					SUIT_WIDTH / 2.0f,
-					SUIT_HEIGHT / 2.0f,
-					SUIT_WIDTH,
-					SUIT_HEIGHT,
-					Settings.scale * 2,
-					Settings.scale * 2,
-					0, 0, 0, SUIT_WIDTH, SUIT_HEIGHT, false, false);
+				PokerCard.Suit.values()[i].getImage(),
+				hb.cX + dx - DIST,
+				hb.cY,
+				SUIT_WIDTH / 2.0f,
+				SUIT_HEIGHT / 2.0f,
+				SUIT_WIDTH,
+				SUIT_HEIGHT,
+				Settings.scale * 2,
+				Settings.scale * 2,
+				0, 0, 0, SUIT_WIDTH, SUIT_HEIGHT, false, false);
 			FontHelper.renderFontCentered(
-					sb,
-					FontHelper.topPanelAmountFont,
-					String.valueOf(ShowdownAction.powView[i]),
-					hb.cX + dx + DIST,
-					hb.cY,
-					Settings.BLUE_TEXT_COLOR);
+				sb,
+				FontHelper.topPanelAmountFont,
+				String.valueOf(ShowdownAction.powView[i]),
+				hb.cX + dx + DIST,
+				hb.cY,
+				Settings.BLUE_TEXT_COLOR);
 		}
 
 		if (ShowdownAction.hardenCount > 0) {
 			float dx = Settings.scale * (distance * (1 - 1.5f));
 			FontHelper.renderFontCentered(
-					sb,
-					FontHelper.powerAmountFont,
-					"+" + ShowdownAction.hardenCount,
-					hb.cX + dx + DIST,
-					hb.cY + HARDEN_DIST,
-					Settings.GREEN_TEXT_COLOR);
+				sb,
+				FontHelper.powerAmountFont,
+				"+" + ShowdownAction.hardenCount,
+				hb.cX + dx + DIST,
+				hb.cY + HARDEN_DIST,
+				Settings.GREEN_TEXT_COLOR);
 		}
 
 		if (this.hb.hovered) {
@@ -142,16 +142,16 @@ public class PokerScoreViewer {
 			}
 			if (index == -1) {
 				TipHelper.renderGenericTip(
-						(float) InputHelper.mX + 50.0F * Settings.scale,
-						(float) InputHelper.mY,
-						TEXT[0],
-						genericTip);
+					(float) InputHelper.mX + 50.0F * Settings.scale,
+					(float) InputHelper.mY,
+					TEXT[0],
+					genericTip);
 			} else {
 				TipHelper.renderGenericTip(
-						(float) InputHelper.mX + 50.0F * Settings.scale,
-						(float) InputHelper.mY,
-						TEXT[0],
-						PokerPlayerMod.slayTheRelicsPowerTips.get(index).get(0).body);
+					(float) InputHelper.mX + 50.0F * Settings.scale,
+					(float) InputHelper.mY,
+					TEXT[0],
+					PokerPlayerMod.slayTheRelicsPowerTips.get(index).get(0).body);
 			}
 		}
 

@@ -64,44 +64,44 @@ public class PokerManualScreen {
 			for (int j = 0; j < numCardDraws[i]; j++) {
 				float x = 720 * Settings.scale + (CARD_WIDTH + 2) * (j - 2) * scale;
 				sb.draw(
-						cardTexture,
-						x - CARD_WIDTH / 2.0f,
-						y - CARD_HEIGHT / 2.0f,
-						CARD_WIDTH / 2.0f,
-						CARD_HEIGHT / 2.0f,
-						CARD_WIDTH,
-						CARD_HEIGHT,
-						scale,
-						scale,
-						0.0F,
-						0,
-						0,
-						CARD_WIDTH,
-						CARD_HEIGHT,
-						false,
-						false);
+					cardTexture,
+					x - CARD_WIDTH / 2.0f,
+					y - CARD_HEIGHT / 2.0f,
+					CARD_WIDTH / 2.0f,
+					CARD_HEIGHT / 2.0f,
+					CARD_WIDTH,
+					CARD_HEIGHT,
+					scale,
+					scale,
+					0.0F,
+					0,
+					0,
+					CARD_WIDTH,
+					CARD_HEIGHT,
+					false,
+					false);
 
 				if (i < 7) {
 					String s = Integer.toString(exampleHands[i][j]);
 					FontHelper.renderFontCentered(sb, FontHelper.losePowerFont, s, x, y, Color.LIME);
 				} else {
 					sb.draw(
-							PokerCard.SUIT_TO_IMG[exampleHands[i][j]],
-							x - PokerCard.SUIT_WIDTH / 2.0f,
-							y - PokerCard.SUIT_HEIGHT / 2.0f,
-							PokerCard.SUIT_WIDTH / 2.0f,
-							PokerCard.SUIT_HEIGHT / 2.0f,
-							PokerCard.SUIT_WIDTH,
-							PokerCard.SUIT_HEIGHT,
-							Settings.scale * 2,
-							Settings.scale * 2,
-							0.0F,
-							0,
-							0,
-							PokerCard.SUIT_WIDTH,
-							PokerCard.SUIT_HEIGHT,
-							false,
-							false);
+						PokerCard.SUIT_TO_IMG[exampleHands[i][j]],
+						x - PokerCard.SUIT_WIDTH / 2.0f,
+						y - PokerCard.SUIT_HEIGHT / 2.0f,
+						PokerCard.SUIT_WIDTH / 2.0f,
+						PokerCard.SUIT_HEIGHT / 2.0f,
+						PokerCard.SUIT_WIDTH,
+						PokerCard.SUIT_HEIGHT,
+						Settings.scale * 2,
+						Settings.scale * 2,
+						0.0F,
+						0,
+						0,
+						PokerCard.SUIT_WIDTH,
+						PokerCard.SUIT_HEIGHT,
+						false,
+						false);
 				}
 			}
 			FontHelper.renderFontLeft(sb, FontHelper.cardDescFont_L, TEXT[i + 5], 900 * Settings.scale, y, Color.YELLOW);

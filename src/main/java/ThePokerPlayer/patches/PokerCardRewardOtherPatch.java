@@ -89,12 +89,12 @@ public class PokerCardRewardOtherPatch {
 	}
 
 	@SpirePatch(
-			clz = AbstractDungeon.class,
-			method = "returnTrulyRandomCardFromAvailable",
-			paramtypez = {
-					AbstractCard.class,
-					Random.class
-			})
+		clz = AbstractDungeon.class,
+		method = "returnTrulyRandomCardFromAvailable",
+		paramtypez = {
+			AbstractCard.class,
+			Random.class
+		})
 	public static class TransformPatch {
 		@SpirePostfixPatch
 		public static AbstractCard Postfix(AbstractCard __result, AbstractCard prohibited, Random rng) {

@@ -53,8 +53,8 @@ public class ShowdownEffect extends AbstractGameEffect {
 
 	void addDests(Hitbox hb) {
 		dest1.add(new Vector2(
-				originX + MathUtils.random(-randomXRange, randomXRange) * Settings.scale,
-				originY + height * MathUtils.random(0.7f, 1.0f) * Settings.scale));
+			originX + MathUtils.random(-randomXRange, randomXRange) * Settings.scale,
+			originY + height * MathUtils.random(0.7f, 1.0f) * Settings.scale));
 		dest2.add(new Vector2(hb.cX, hb.cY));
 		curPos.add(new Vector2(originX, originY));
 	}
@@ -154,14 +154,14 @@ public class ShowdownEffect extends AbstractGameEffect {
 	private void renderImg(SpriteBatch sb, Texture img, float rotation, int loc) {
 		Vector2 v = curPos.get(loc);
 		sb.draw(img, v.x, v.y,
-				PokerCard.SUIT_WIDTH / 2.0f,
-				PokerCard.SUIT_HEIGHT / 2.0f,
-				PokerCard.SUIT_WIDTH,
-				PokerCard.SUIT_HEIGHT,
-				this.scale * 2, this.scale * 2, rotation, 0, 0,
-				PokerCard.SUIT_WIDTH,
-				PokerCard.SUIT_HEIGHT,
-				false, false);
+			PokerCard.SUIT_WIDTH / 2.0f,
+			PokerCard.SUIT_HEIGHT / 2.0f,
+			PokerCard.SUIT_WIDTH,
+			PokerCard.SUIT_HEIGHT,
+			this.scale * 2, this.scale * 2, rotation, 0, 0,
+			PokerCard.SUIT_WIDTH,
+			PokerCard.SUIT_HEIGHT,
+			false, false);
 	}
 
 	@Override

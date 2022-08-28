@@ -13,17 +13,17 @@ import java.util.ArrayList;
 
 public class PokerCardRewardPatch {
 	public static final int[] RATIO_RANK_NORMAL =
-			new int[]{0, 20, 20, 20, 20, 10, 4, 2, 2, 1, 1};
+		new int[]{0, 20, 20, 20, 20, 10, 4, 2, 2, 1, 1};
 	public static final int[] RATIO_RANK_NORMAL_NLOTH =
-			new int[]{0, 16, 16, 16, 16, 10, 8, 6, 6, 3, 3};
+		new int[]{0, 16, 16, 16, 16, 10, 8, 6, 6, 3, 3};
 	public static final int[] RATIO_RANK_ELITE =
-			new int[]{0, 16, 16, 16, 16, 10, 8, 6, 6, 3, 3};
+		new int[]{0, 16, 16, 16, 16, 10, 8, 6, 6, 3, 3};
 	public static final int[] RATIO_RANK_ELITE_NLOTH =
-			new int[]{0, 11, 11, 11, 11, 10, 10, 9, 9, 9, 9};
+		new int[]{0, 11, 11, 11, 11, 10, 10, 9, 9, 9, 9};
 	public static final int[] RATIO_RANK_BOSS =
-			new int[]{0, 0, 0, 0, 0, 0, 0, 25, 25, 25, 25};
+		new int[]{0, 0, 0, 0, 0, 0, 0, 25, 25, 25, 25};
 	public static final int[] RATIO_RANK_BOSS_NLOTH =
-			new int[]{0, 0, 0, 0, 0, 0, 0, 25, 25, 25, 25};
+		new int[]{0, 0, 0, 0, 0, 0, 0, 25, 25, 25, 25};
 	public static final int[] RATIO_SUIT = new int[]{1, 3, 2, 4};
 
 	public static void replaceHalf(ArrayList<AbstractCard> list, boolean canDuplicate) {
@@ -46,10 +46,10 @@ public class PokerCardRewardPatch {
 			}
 
 			int[] ratio = AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite ?
-					(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_ELITE_NLOTH : RATIO_RANK_ELITE) :
-					AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss ?
-							(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_BOSS_NLOTH : RATIO_RANK_BOSS) :
-							(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_NORMAL_NLOTH : RATIO_RANK_NORMAL);
+				(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_ELITE_NLOTH : RATIO_RANK_ELITE) :
+				AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss ?
+					(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_BOSS_NLOTH : RATIO_RANK_BOSS) :
+					(AbstractDungeon.player.hasRelic(NlothsGift.ID) ? RATIO_RANK_NORMAL_NLOTH : RATIO_RANK_NORMAL);
 			for (rank = 1; rank <= 10; rank++) {
 				if (rankNum < ratio[rank]) {
 					break;

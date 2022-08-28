@@ -30,8 +30,8 @@ public class PendantOfEscape extends CustomRelic implements ClickableRelic {
 		}
 
 		if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-				AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() &&
-				!AbstractDungeon.actionManager.turnHasEnded && !disabled
+			AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() &&
+			!AbstractDungeon.actionManager.turnHasEnded && !disabled
 		) {
 			alreadyUsed = true;
 			flash();

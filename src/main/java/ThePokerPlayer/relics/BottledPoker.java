@@ -64,7 +64,7 @@ public class BottledPoker extends CustomRelic implements CustomBottleRelic, Cust
 		status = bottleStatus.GridOpen;
 		selectingInstance = this;
 		AbstractDungeon.gridSelectScreen.open(group,
-				NUM, true, DESCRIPTIONS[2] + name + ".");
+			NUM, true, DESCRIPTIONS[2] + name + ".");
 	}
 
 	public void onUnequip() {

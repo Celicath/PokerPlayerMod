@@ -38,14 +38,14 @@ public class WasteCollection extends CustomCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new FetchAction(
-				AbstractDungeon.player.drawPile,
-				c -> c instanceof PokerCard && ((PokerCard) c).rank <= THRESHOLD,
-				magicNumber,
-				list -> {
-					for (AbstractCard c : list) {
-						((PokerCard) c).multiplyEffect(MULTIPLIER);
-					}
+			AbstractDungeon.player.drawPile,
+			c -> c instanceof PokerCard && ((PokerCard) c).rank <= THRESHOLD,
+			magicNumber,
+			list -> {
+				for (AbstractCard c : list) {
+					((PokerCard) c).multiplyEffect(MULTIPLIER);
 				}
+			}
 		));
 	}
 

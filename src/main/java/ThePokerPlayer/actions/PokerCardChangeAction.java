@@ -217,7 +217,7 @@ public class PokerCardChangeAction extends AbstractGameAction {
 		GameActionManager.incrementDiscard(false);
 		if (target != null) {
 			AttackEffect effect = c.rank > 6 ? AttackEffect.BLUNT_HEAVY :
-					c.rank > 3 ? AttackEffect.BLUNT_HEAVY : AttackEffect.SLASH_DIAGONAL;
+				c.rank > 3 ? AttackEffect.BLUNT_HEAVY : AttackEffect.SLASH_DIAGONAL;
 			float damage = c.rank * rankChange;
 			for (AbstractPower p : source.powers) {
 				damage = p.atDamageGive(damage, DamageInfo.DamageType.NORMAL);

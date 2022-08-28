@@ -46,7 +46,7 @@ public class Overdeal extends CustomCard {
 		applyPowers();
 
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
-				AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+			AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 		AbstractDungeon.actionManager.addToBottom(new OverdealAction(p, this.upgraded, this.freeToPlayOnce, this.energyOnUse));
 	}
 

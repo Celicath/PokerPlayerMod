@@ -44,9 +44,9 @@ import java.util.*;
 
 @SpireInitializer
 public class PokerPlayerMod
-		implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
-		EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
-		PostDungeonInitializeSubscriber, StartGameSubscriber {
+	implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber,
+	EditCharactersSubscriber, PostInitializeSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber,
+	PostDungeonInitializeSubscriber, StartGameSubscriber {
 	public static final Logger logger = LogManager.getLogger(PokerPlayerMod.class.getName());
 
 	//This is for the in-game mod settings pannel.
@@ -102,11 +102,11 @@ public class PokerPlayerMod
 
 	// Bans
 	public static final ArrayList<String> bannedRelics = new ArrayList<>(Arrays.asList(
-			SneckoEye.ID, CentennialPuzzle.ID, RunicPyramid.ID, BagOfPreparation.ID, Pocketwatch.ID, GremlinHorn.ID, PandorasBox.ID, UnceasingTop.ID, DeadBranch.ID,
-			InkBottle.ID, ArtOfWar.ID
+		SneckoEye.ID, CentennialPuzzle.ID, RunicPyramid.ID, BagOfPreparation.ID, Pocketwatch.ID, GremlinHorn.ID, PandorasBox.ID, UnceasingTop.ID, DeadBranch.ID,
+		InkBottle.ID, ArtOfWar.ID
 	));
 	public static final HashSet<String> bannedCards = new HashSet<>(Arrays.asList(
-			DeepBreath.ID, Impatience.ID, MasterOfStrategy.ID, Mayhem.ID, Magnetism.ID
+		DeepBreath.ID, Impatience.ID, MasterOfStrategy.ID, Mayhem.ID, Magnetism.ID
 	));
 
 	// Configs
@@ -139,11 +139,11 @@ public class PokerPlayerMod
 		logger.info("Creating the color " + CardColorEnum.POKER_PLAYER_GRAY.toString());
 
 		BaseMod.addColor(CardColorEnum.POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, POKER_PLAYER_GRAY,
-				POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, makePath(ATTACK_POKER_PLAYER_GRAY),
-				makePath(SKILL_POKER_PLAYER_GRAY), makePath(POWER_POKER_PLAYER_GRAY),
-				makePath(ENERGY_ORB_POKER_PLAYER_GRAY), makePath(ATTACK_POKER_PLAYER_GRAY_PORTRAIT),
-				makePath(SKILL_POKER_PLAYER_GRAY_PORTRAIT), makePath(POWER_POKER_PLAYER_GRAY_PORTRAIT),
-				makePath(ENERGY_ORB_POKER_PLAYER_GRAY_PORTRAIT), makePath(CARD_ENERGY_ORB));
+			POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, POKER_PLAYER_GRAY, makePath(ATTACK_POKER_PLAYER_GRAY),
+			makePath(SKILL_POKER_PLAYER_GRAY), makePath(POWER_POKER_PLAYER_GRAY),
+			makePath(ENERGY_ORB_POKER_PLAYER_GRAY), makePath(ATTACK_POKER_PLAYER_GRAY_PORTRAIT),
+			makePath(SKILL_POKER_PLAYER_GRAY_PORTRAIT), makePath(POWER_POKER_PLAYER_GRAY_PORTRAIT),
+			makePath(ENERGY_ORB_POKER_PLAYER_GRAY_PORTRAIT), makePath(CARD_ENERGY_ORB));
 
 		logger.info("Done Creating the color");
 
@@ -162,7 +162,7 @@ public class PokerPlayerMod
 		logger.info("begin editing characters. " + "Add " + ThePokerPlayerEnum.THE_POKER_PLAYER.toString());
 
 		BaseMod.addCharacter(new ThePokerPlayer(ThePokerPlayer.charStrings.NAMES[1], ThePokerPlayerEnum.THE_POKER_PLAYER),
-				makePath(THE_DEFAULT_BUTTON), makePath(THE_DEFAULT_PORTRAIT), ThePokerPlayerEnum.THE_POKER_PLAYER);
+			makePath(THE_DEFAULT_BUTTON), makePath(THE_DEFAULT_PORTRAIT), ThePokerPlayerEnum.THE_POKER_PLAYER);
 
 		receiveEditPotions();
 		logger.info("done editing characters");
@@ -231,26 +231,26 @@ public class PokerPlayerMod
 		});
 		*/
 		banContentsButton = new ModLabeledToggleButton(
-				CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("BanContentsConfig")).TEXT[0],
-				400.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
-				banContents, settingsPanel, (label) -> {
+			CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("BanContentsConfig")).TEXT[0],
+			400.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+			banContents, settingsPanel, (label) -> {
 		}, (button) -> {
 			banContents = button.enabled;
 			saveConfig();
 		});
 		exordiumAllButton = new ModLabeledToggleButton(
-				CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("ExordiumClubConfig")).TEXT[0],
-				400.0f, 550.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
-				exordiumAll, settingsPanel, (label) -> {
+			CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("ExordiumClubConfig")).TEXT[0],
+			400.0f, 550.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+			exordiumAll, settingsPanel, (label) -> {
 		}, (button) -> {
 			exordiumAll = button.enabled;
 			saveConfig();
 		});
 
 		ModLabeledButton restoreDefaultButton = new ModLabeledButton(
-				CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("RestoreDefaultConfig")).TEXT[0],
-				380.0f, 450.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
-				settingsPanel, (label) -> {
+			CardCrawlGame.languagePack.getUIString(PokerPlayerMod.makeID("RestoreDefaultConfig")).TEXT[0],
+			380.0f, 450.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+			settingsPanel, (label) -> {
 		}, (button) -> {
 			defaultConfig();
 			saveConfig();
@@ -495,10 +495,10 @@ public class PokerPlayerMod
 	@Override
 	public boolean receivePreMonsterTurn(AbstractMonster m) {
 		CardGroup[] groups = new CardGroup[]{
-				AbstractDungeon.player.hand,
-				AbstractDungeon.player.drawPile,
-				AbstractDungeon.player.discardPile,
-				AbstractDungeon.player.exhaustPile
+			AbstractDungeon.player.hand,
+			AbstractDungeon.player.drawPile,
+			AbstractDungeon.player.discardPile,
+			AbstractDungeon.player.exhaustPile
 		};
 		for (CardGroup cg : groups) {
 			for (int i = 0; i < cg.size(); i++) {
@@ -544,7 +544,7 @@ public class PokerPlayerMod
 
 	private static String GetLocString(String locCode, String name) {
 		return Gdx.files.internal("PokerPlayerMod/localization/" + locCode + "/" + name + ".json").readString(
-				String.valueOf(StandardCharsets.UTF_8));
+			String.valueOf(StandardCharsets.UTF_8));
 	}
 
 	private static HashMap<String, Texture> imgMap = new HashMap<>();

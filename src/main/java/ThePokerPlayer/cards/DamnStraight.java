@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class DamnStraight extends CustomCard {
 	private static final String RAW_ID = "DamnStraight";
@@ -51,11 +52,14 @@ public class DamnStraight extends CustomCard {
 	}
 
 	private void updateDescription() {
-		this.rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION) +
-				EXTENDED_DESCRIPTION[0] + ShowdownAction.modifierByHand(ShowdownAction.STRAIGHT) +
+		rawDescription = (upgraded ? UPGRADE_DESCRIPTION : DESCRIPTION);
+		AbstractPower p = AbstractDungeon.player == null ? null : AbstractDungeon.player.getPower(DamnStraightPower.POWER_ID);
+		if (p == null || p.amount < 16) {
+			rawDescription += EXTENDED_DESCRIPTION[0] + ShowdownAction.modifierByHand(ShowdownAction.STRAIGHT) +
 				EXTENDED_DESCRIPTION[1] + ShowdownAction.modifierByHand(ShowdownAction.STRAIGHT) * 2 +
 				EXTENDED_DESCRIPTION[2];
-		this.initializeDescription();
+		}
+		initializeDescription();
 	}
 
 	public void upgrade() {

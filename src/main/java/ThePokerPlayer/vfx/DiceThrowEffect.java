@@ -44,30 +44,30 @@ public class DiceThrowEffect extends AbstractGameEffect {
 	public static final int F_WIDTH = 32;
 	public static final int F_HEIGHT = 32;
 	public static final int[][] SPOTS_X = new int[][]{
-			new int[0],
-			new int[]{16},
-			new int[]{10, 22},
-			new int[]{8, 16, 24},
-			new int[]{8, 8, 24, 24},
-			new int[]{8, 8, 16, 24, 24},
-			new int[]{10, 10, 10, 22, 22, 22},
-			new int[]{12, 20, 8, 16, 24, 12, 20},
-			new int[]{8, 16, 24, 12, 20, 8, 16, 24},
-			new int[]{8, 16, 24, 8, 16, 24, 8, 16, 24},
-			new int[]{8, 16, 24, 4, 12, 20, 28, 8, 16, 24},
+		new int[0],
+		new int[]{16},
+		new int[]{10, 22},
+		new int[]{8, 16, 24},
+		new int[]{8, 8, 24, 24},
+		new int[]{8, 8, 16, 24, 24},
+		new int[]{10, 10, 10, 22, 22, 22},
+		new int[]{12, 20, 8, 16, 24, 12, 20},
+		new int[]{8, 16, 24, 12, 20, 8, 16, 24},
+		new int[]{8, 16, 24, 8, 16, 24, 8, 16, 24},
+		new int[]{8, 16, 24, 4, 12, 20, 28, 8, 16, 24},
 	};
 	public static final int[][] SPOTS_Y = new int[][]{
-			new int[0],
-			new int[]{16},
-			new int[]{10, 22},
-			new int[]{8, 16, 24},
-			new int[]{8, 24, 8, 24},
-			new int[]{8, 24, 16, 8, 24},
-			new int[]{8, 16, 24, 8, 16, 24},
-			new int[]{8, 8, 16, 16, 16, 24, 24},
-			new int[]{8, 8, 8, 16, 16, 24, 24, 24},
-			new int[]{8, 8, 8, 16, 16, 16, 24, 24, 24},
-			new int[]{8, 8, 8, 16, 16, 16, 16, 24, 24, 24},
+		new int[0],
+		new int[]{16},
+		new int[]{10, 22},
+		new int[]{8, 16, 24},
+		new int[]{8, 24, 8, 24},
+		new int[]{8, 24, 16, 8, 24},
+		new int[]{8, 16, 24, 8, 16, 24},
+		new int[]{8, 8, 16, 16, 16, 24, 24},
+		new int[]{8, 8, 8, 16, 16, 24, 24, 24},
+		new int[]{8, 8, 8, 16, 16, 16, 24, 24, 24},
+		new int[]{8, 8, 8, 16, 16, 16, 16, 24, 24, 24},
 	};
 
 	static {
@@ -117,12 +117,12 @@ public class DiceThrowEffect extends AbstractGameEffect {
 	}
 
 	public static final int[][] faceIndex = new int[][]{
-			new int[]{0, 1, 3, 2, 4},
-			new int[]{0, 1, 5, 4, 2},
-			new int[]{0, 4, 6, 2, 1},
-			new int[]{1, 5, 7, 3, 0},
-			new int[]{2, 3, 7, 6, 0},
-			new int[]{5, 4, 6, 7, 1}
+		new int[]{0, 1, 3, 2, 4},
+		new int[]{0, 1, 5, 4, 2},
+		new int[]{0, 4, 6, 2, 1},
+		new int[]{1, 5, 7, 3, 0},
+		new int[]{2, 3, 7, 6, 0},
+		new int[]{5, 4, 6, 7, 1}
 	};
 	private boolean[] faceVisible;
 	private Vector3[] vertex;
@@ -182,7 +182,7 @@ public class DiceThrowEffect extends AbstractGameEffect {
 
 		Vector3f position = new Vector3f(rngCopy.random() * 10.0f - 5.0f, -16, 5);
 		DefaultMotionState fallMotionState = new DefaultMotionState(new Transform(new Matrix4f(
-				getRandomRotation(rngCopy), position, 1.0f)));
+			getRandomRotation(rngCopy), position, 1.0f)));
 
 		int mass = 1;
 
@@ -193,9 +193,9 @@ public class DiceThrowEffect extends AbstractGameEffect {
 		diceRigidBody = new RigidBody(diceRigidBodyCI);
 		diceRigidBody.setLinearVelocity(new Vector3f(position.x * -0.35f, 12 + rngCopy.random() * 6.0f, 5.0f));
 		diceRigidBody.setAngularVelocity(new Vector3f(
-				(rngCopy.random() - 0.5f) * 10.0f,
-				(rngCopy.random() - 0.5f) * 10.0f,
-				(rngCopy.random() - 0.5f) * 10.0f));
+			(rngCopy.random() - 0.5f) * 10.0f,
+			(rngCopy.random() - 0.5f) * 10.0f,
+			(rngCopy.random() - 0.5f) * 10.0f));
 		diceRigidBody.setFriction(0.5f);
 
 		dynamicsWorld.addRigidBody(diceRigidBody);
@@ -244,9 +244,9 @@ public class DiceThrowEffect extends AbstractGameEffect {
 
 		for (int i = 0; i < 8; i++) {
 			vertex[i] = new Vector3(
-					(i % 2 == 0 ? v1.x : -v1.x) + (i / 2 % 2 == 0 ? v2.x : -v2.x) + (i / 4 % 2 == 0 ? v3.x : -v3.x),
-					(i % 2 == 0 ? v1.y : -v1.y) + (i / 2 % 2 == 0 ? v2.y : -v2.y) + (i / 4 % 2 == 0 ? v3.y : -v3.y),
-					(i % 2 == 0 ? v1.z : -v1.z) + (i / 2 % 2 == 0 ? v2.z : -v2.z) + (i / 4 % 2 == 0 ? v3.z : -v3.z)
+				(i % 2 == 0 ? v1.x : -v1.x) + (i / 2 % 2 == 0 ? v2.x : -v2.x) + (i / 4 % 2 == 0 ? v3.x : -v3.x),
+				(i % 2 == 0 ? v1.y : -v1.y) + (i / 2 % 2 == 0 ? v2.y : -v2.y) + (i / 4 % 2 == 0 ? v3.y : -v3.y),
+				(i % 2 == 0 ? v1.z : -v1.z) + (i / 2 % 2 == 0 ? v2.z : -v2.z) + (i / 4 % 2 == 0 ? v3.z : -v3.z)
 			);
 		}
 		float max = 0;

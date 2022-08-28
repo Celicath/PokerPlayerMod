@@ -25,7 +25,7 @@ public class TheDieIsCastAction extends AbstractGameAction {
 			init = true;
 		} else if (effect.isDone) {
 			AbstractDungeon.actionManager.addToTop(new PokerCardChangeAction(
-					AbstractDungeon.player, AbstractDungeon.player, PokerCardChangeAction.Mode.RANK_CHANGE_SET, BaseMod.MAX_HAND_SIZE, effect.diceResult));
+				AbstractDungeon.player, AbstractDungeon.player, PokerCardChangeAction.Mode.RANK_CHANGE_SET, BaseMod.MAX_HAND_SIZE, effect.diceResult));
 			this.isDone = true;
 		}
 	}

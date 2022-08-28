@@ -17,7 +17,7 @@ public class PokerScoreViewerPatch {
 		@SpirePostfixPatch
 		public static void Postfix(AbstractPlayer __instance) {
 			if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-					AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER && !ShowdownAction.onAction) {
+				AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER && !ShowdownAction.onAction) {
 				PokerPlayerMod.pokerScoreViewer.dragUpdate();
 			}
 		}
@@ -28,7 +28,7 @@ public class PokerScoreViewerPatch {
 		@SpirePrefixPatch
 		public static void Prefix(EnergyPanel __instance) {
 			if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-					AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER && !ShowdownAction.onAction) {
+				AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER && !ShowdownAction.onAction) {
 				PokerPlayerMod.pokerScoreViewer.update();
 			} else {
 				PokerPlayerMod.slayTheRelicsPowerTips.clear();
@@ -41,7 +41,7 @@ public class PokerScoreViewerPatch {
 		@SpirePostfixPatch
 		public static void Postfix(EnergyPanel __instance, SpriteBatch sb) {
 			if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
-					AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
+				AbstractDungeon.player.chosenClass == ThePokerPlayerEnum.THE_POKER_PLAYER) {
 				PokerPlayerMod.pokerScoreViewer.render(sb);
 			}
 		}

@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 public class CardGenPatch {
 	@SpirePatch(
-			clz = ShowCardAndAddToDiscardEffect.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					AbstractCard.class,
-					float.class,
-					float.class
-			}
+		clz = ShowCardAndAddToDiscardEffect.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			AbstractCard.class,
+			float.class,
+			float.class
+		}
 	)
 	public static class AddToDiscardConstruct1 {
 		@SpirePrefixPatch
@@ -28,11 +28,11 @@ public class CardGenPatch {
 	}
 
 	@SpirePatch(
-			clz = ShowCardAndAddToDiscardEffect.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					AbstractCard.class
-			}
+		clz = ShowCardAndAddToDiscardEffect.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			AbstractCard.class
+		}
 	)
 	public static class AddToDiscardConstruct2 {
 		@SpirePrefixPatch
@@ -44,16 +44,16 @@ public class CardGenPatch {
 	}
 
 	@SpirePatch(
-			clz = ShowCardAndAddToDrawPileEffect.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					AbstractCard.class,
-					float.class,
-					float.class,
-					boolean.class,
-					boolean.class,
-					boolean.class
-			}
+		clz = ShowCardAndAddToDrawPileEffect.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			AbstractCard.class,
+			float.class,
+			float.class,
+			boolean.class,
+			boolean.class,
+			boolean.class
+		}
 	)
 	public static class AddToDrawPileConstruct1 {
 		@SpirePrefixPatch
@@ -65,13 +65,13 @@ public class CardGenPatch {
 	}
 
 	@SpirePatch(
-			clz = ShowCardAndAddToDrawPileEffect.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					AbstractCard.class,
-					boolean.class,
-					boolean.class,
-			}
+		clz = ShowCardAndAddToDrawPileEffect.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			AbstractCard.class,
+			boolean.class,
+			boolean.class,
+		}
 	)
 	public static class AddToDrawPileConstruct2 {
 		@SpirePrefixPatch
@@ -83,13 +83,13 @@ public class CardGenPatch {
 	}
 
 	@SpirePatch(
-			clz = ShowCardAndAddToHandEffect.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					AbstractCard.class,
-					float.class,
-					float.class
-			}
+		clz = ShowCardAndAddToHandEffect.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			AbstractCard.class,
+			float.class,
+			float.class
+		}
 	)
 	public static class AddToHandConstructor1 {
 		@SpirePrefixPatch()
@@ -101,11 +101,11 @@ public class CardGenPatch {
 	}
 
 	@SpirePatch(
-			clz = ShowCardAndAddToHandEffect.class,
-			method = SpirePatch.CONSTRUCTOR,
-			paramtypez = {
-					AbstractCard.class
-			}
+		clz = ShowCardAndAddToHandEffect.class,
+		method = SpirePatch.CONSTRUCTOR,
+		paramtypez = {
+			AbstractCard.class
+		}
 	)
 	public static class AddToHandConstructor2 {
 		@SpirePrefixPatch()

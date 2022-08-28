@@ -40,21 +40,21 @@ public class Duplicate extends CustomCard {
 			AbstractDungeon.player.getRelic(BrokenClock.ID).flash();
 			BrokenClockChoice bcc = new BrokenClockChoice();
 			AbstractDungeon.actionManager.addToBottom(new ChooseAction(
-					PoorCopy.EXTENDED_DESCRIPTION[0],
-					new ChooseOption(
-							bcc,
-							bcc.name,
-							bcc.rawDescription,
-							() -> {
-								AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
-							}),
-					new ChooseOption(
-							this,
-							this.name,
-							this.rawDescription,
-							() -> {
-								AbstractDungeon.actionManager.addToBottom(new PokerCardChangeAction(p, p, PokerCardChangeAction.Mode.COPY, 1, 0));
-							})
+				PoorCopy.EXTENDED_DESCRIPTION[0],
+				new ChooseOption(
+					bcc,
+					bcc.name,
+					bcc.rawDescription,
+					() -> {
+						AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
+					}),
+				new ChooseOption(
+					this,
+					this.name,
+					this.rawDescription,
+					() -> {
+						AbstractDungeon.actionManager.addToBottom(new PokerCardChangeAction(p, p, PokerCardChangeAction.Mode.COPY, 1, 0));
+					})
 			));
 		} else {
 			AbstractDungeon.actionManager.addToBottom(new PokerCardChangeAction(p, p, PokerCardChangeAction.Mode.COPY, 1, 0));

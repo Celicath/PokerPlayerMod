@@ -47,17 +47,17 @@ public class ThePokerPlayer extends CustomPlayer {
 	// =============== TEXTURES OF BIG ENERGY ORB ===============
 
 	public static final String[] orbTextures = {
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer1.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer2.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer3.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer4.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer5.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer6.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer1d.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer2d.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer3d.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer4d.png",
-			"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer5d.png",};
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer1.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer2.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer3.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer4.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer5.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer6.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer1d.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer2d.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer3d.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer4d.png",
+		"PokerPlayerMod/images/char/ThePokerPlayer/orb/layer5d.png",};
 
 	// =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
@@ -66,16 +66,16 @@ public class ThePokerPlayer extends CustomPlayer {
 
 	public ThePokerPlayer(String name, PlayerClass setClass) {
 		super(name, setClass, orbTextures,
-				"PokerPlayerMod/images/char/ThePokerPlayer/orb/vfx.png", null, null, null);
+			"PokerPlayerMod/images/char/ThePokerPlayer/orb/vfx.png", null, null, null);
 
 
 		// =============== TEXTURES, ENERGY, LOADOUT =================
 
 		initializeClass(null, // required call to load textures and setup energy/loadout
-				PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SHOULDER_1), // campfire pose
-				PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SHOULDER_2), // another campfire pose
-				PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_CORPSE), // dead corpse
-				getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
+			PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SHOULDER_1), // campfire pose
+			PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SHOULDER_2), // another campfire pose
+			PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_CORPSE), // dead corpse
+			getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
 		// =============== /TEXTURES, ENERGY, LOADOUT/ =================
 
@@ -83,9 +83,9 @@ public class ThePokerPlayer extends CustomPlayer {
 		// =============== ANIMATIONS =================
 
 		this.loadAnimation(
-				PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SKELETON_ATLAS),
-				PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SKELETON_JSON),
-				1.0f);
+			PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SKELETON_ATLAS),
+			PokerPlayerMod.makePath(PokerPlayerMod.THE_DEFAULT_SKELETON_JSON),
+			1.0f);
 		AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
 		e.setTime(e.getEndTime() * MathUtils.random());
 		e.setTimeScale(0.75F);
@@ -109,10 +109,10 @@ public class ThePokerPlayer extends CustomPlayer {
 	@Override
 	public CharSelectInfo getLoadout() {
 		return new CharSelectInfo(
-				getLocalizedCharacterName(),
-				charStrings.TEXT[0],
-				STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(),
-				getStartingDeck(), false);
+			getLocalizedCharacterName(),
+			charStrings.TEXT[0],
+			STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(),
+			getStartingDeck(), false);
 	}
 
 	// Starting Deck
@@ -158,7 +158,7 @@ public class ThePokerPlayer extends CustomPlayer {
 		CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
 		CardCrawlGame.sound.playA("CARD_DRAW_8", 1.0f); // Sound Effect
 		CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
-				false); // Screen Effect
+			false); // Screen Effect
 	}
 
 	// Character select on-button-press sound effect
@@ -236,12 +236,12 @@ public class ThePokerPlayer extends CustomPlayer {
 	@Override
 	public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
 		return new AbstractGameAction.AttackEffect[]{
-				AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-				AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
-				AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-				AbstractGameAction.AttackEffect.SLASH_VERTICAL,
-				AbstractGameAction.AttackEffect.BLUNT_LIGHT,
-				AbstractGameAction.AttackEffect.SLASH_HEAVY};
+			AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+			AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+			AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+			AbstractGameAction.AttackEffect.SLASH_VERTICAL,
+			AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+			AbstractGameAction.AttackEffect.SLASH_HEAVY};
 	}
 
 	// Should return a string containing what text is shown when your character is

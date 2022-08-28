@@ -42,37 +42,37 @@ public class PokerCard extends CustomCard {
 
 	public static final String[] SUIT_TO_RAW_ID = new String[]{"Heart", "Spade", "Club", "Diamond"};
 	public static final Texture[] SUIT_TO_IMG = new Texture[]{
-			PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Heart.value])),
-			PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Spade.value])),
-			PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Club.value])),
-			PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Diamond.value]))
+		PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Heart.value])),
+		PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Spade.value])),
+		PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Club.value])),
+		PokerPlayerMod.loadTexture(PokerPlayerMod.GetCardPath(SUIT_TO_RAW_ID[Suit.Diamond.value]))
 	};
 
 	public static float X_LIMIT = 60.0f;
 	public static float Y_LIMIT = 40.0f;
 	public static final float[][] OFFSETS_X = new float[][]{
-			new float[]{0},
-			new float[]{-X_LIMIT, X_LIMIT},
-			new float[]{-X_LIMIT, 0, X_LIMIT},
-			new float[]{-X_LIMIT, -X_LIMIT, X_LIMIT, X_LIMIT},
-			new float[]{-X_LIMIT, -X_LIMIT, 0, X_LIMIT, X_LIMIT},
-			new float[]{-X_LIMIT, -X_LIMIT, 0, 0, X_LIMIT, X_LIMIT},
-			new float[]{-X_LIMIT, -X_LIMIT, -X_LIMIT / 2, 0, 0, X_LIMIT, X_LIMIT},
-			new float[]{-X_LIMIT, -X_LIMIT, -X_LIMIT / 2, 0, 0, X_LIMIT / 2, X_LIMIT, X_LIMIT},
-			new float[]{-X_LIMIT, -X_LIMIT, -X_LIMIT / 3, -X_LIMIT / 3, 0, X_LIMIT / 3, X_LIMIT / 3, X_LIMIT, X_LIMIT},
-			new float[]{-X_LIMIT, -X_LIMIT, -2 * X_LIMIT / 3, -X_LIMIT / 3, -X_LIMIT / 3, X_LIMIT / 3, X_LIMIT / 3, 2 * X_LIMIT / 3, X_LIMIT, X_LIMIT}
+		new float[]{0},
+		new float[]{-X_LIMIT, X_LIMIT},
+		new float[]{-X_LIMIT, 0, X_LIMIT},
+		new float[]{-X_LIMIT, -X_LIMIT, X_LIMIT, X_LIMIT},
+		new float[]{-X_LIMIT, -X_LIMIT, 0, X_LIMIT, X_LIMIT},
+		new float[]{-X_LIMIT, -X_LIMIT, 0, 0, X_LIMIT, X_LIMIT},
+		new float[]{-X_LIMIT, -X_LIMIT, -X_LIMIT / 2, 0, 0, X_LIMIT, X_LIMIT},
+		new float[]{-X_LIMIT, -X_LIMIT, -X_LIMIT / 2, 0, 0, X_LIMIT / 2, X_LIMIT, X_LIMIT},
+		new float[]{-X_LIMIT, -X_LIMIT, -X_LIMIT / 3, -X_LIMIT / 3, 0, X_LIMIT / 3, X_LIMIT / 3, X_LIMIT, X_LIMIT},
+		new float[]{-X_LIMIT, -X_LIMIT, -2 * X_LIMIT / 3, -X_LIMIT / 3, -X_LIMIT / 3, X_LIMIT / 3, X_LIMIT / 3, 2 * X_LIMIT / 3, X_LIMIT, X_LIMIT}
 	};
 	public static final float[][] OFFSETS_Y = new float[][]{
-			new float[]{0},
-			new float[]{0, 0},
-			new float[]{0, 0, 0},
-			new float[]{-Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
-			new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT},
-			new float[]{-Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
-			new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
-			new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT},
-			new float[]{-Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
-			new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT}
+		new float[]{0},
+		new float[]{0, 0},
+		new float[]{0, 0, 0},
+		new float[]{-Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
+		new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT},
+		new float[]{-Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
+		new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
+		new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT},
+		new float[]{-Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT},
+		new float[]{-Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT, -Y_LIMIT, Y_LIMIT, 0, -Y_LIMIT, Y_LIMIT}
 	};
 
 	public static final int SUIT_WIDTH = 17;
@@ -214,16 +214,16 @@ public class PokerCard extends CustomCard {
 			float dx = OFFSETS_X[rank - 1][i] / 2.0f;
 			float dy = OFFSETS_Y[rank - 1][i] / 2.0f;
 			sb.draw(
-					suit.getImage(),
-					drawX + dx,
-					drawY + dy + yOffset,
-					SUIT_WIDTH / 2.0f - dx,
-					SUIT_HEIGHT / 2.0f - yOffset - dy,
-					SUIT_WIDTH,
-					SUIT_HEIGHT,
-					scale,
-					scale,
-					this.angle, 0, 0, SUIT_WIDTH, SUIT_HEIGHT, false, false);
+				suit.getImage(),
+				drawX + dx,
+				drawY + dy + yOffset,
+				SUIT_WIDTH / 2.0f - dx,
+				SUIT_HEIGHT / 2.0f - yOffset - dy,
+				SUIT_WIDTH,
+				SUIT_HEIGHT,
+				scale,
+				scale,
+				this.angle, 0, 0, SUIT_WIDTH, SUIT_HEIGHT, false, false);
 		}
 	}
 
